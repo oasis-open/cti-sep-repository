@@ -1,9 +1,3 @@
-Template - Open Repo GitHub CONTRIBUTING page
-Updated: 07/27/2018
-Editor: Chet Ensign 
-
-=== CONTRIBUTING.md ===
-
 <div>
 <h1>Contributing</h1>
 
