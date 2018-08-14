@@ -14,7 +14,7 @@
 
 <div>
 <h2><a id="distinctLicenses">Licensing Distinct from OASIS IPR Policy</a></h2>
-<p>Because different licenses apply to the OASIS TC's specification work, and this TC Open Repository, there is no guarantee that the licensure of specific repository material will be compatible with licensing requirements of an implementation of a TC's specification.  Please refer to the <a href="https://github.com/oasis-open/cti-sep-repository/blob/master/LICENSE">LICENSE file</a> for the terms of this material, and to the OASIS IPR Policy for <a href="https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode">the terms applicable to the TC's specifications</a>, including any applicable <a href="https://www.oasis-open.org/committees/cti/ipr.php">declarations</a>.</p>
+<p>Because different licenses apply to the OASIS TC's specification work, and this TC Open Repository, there is no guarantee that the licensure of specific repository material will be compatible with licensing requirements of an implementation of a TC's specification.  Please refer to the <a href="https://github.com/oasis-open/cti-sep-repository/blob/master/LICENSE.md">LICENSE file</a> for the terms of this material, and to the OASIS IPR Policy for <a href="https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode">the terms applicable to the TC's specifications</a>, including any applicable <a href="https://www.oasis-open.org/committees/cti/ipr.php">declarations</a>.</p>
 </div>
 
 <div>
