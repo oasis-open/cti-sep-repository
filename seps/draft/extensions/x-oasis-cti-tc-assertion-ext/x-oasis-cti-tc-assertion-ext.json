@@ -1,44 +1,45 @@
 {
-  "id": "x-oasis-cti-tc-silver-bullet.json",
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "silver-bullet",
-  "description": "A STIX Silver Bullet solves all the world's problems.",
-  "type": "object",
-  "allOf": [
-    {
-      "$ref": "../../../../cti-stix2-json-schemas/schemas/common/cyber-observable-core.json"
-    },
-    {
-      "properties": {
-        "type": {
-          "type": "string",
-          "description": "The type of this object, which MUST be the literal `x-oasis-cti-tc-silver-bullet`.",
-          "enum": ["x-oasis-cti-tc-silver-bullet"]
-        },
-        "id": {
-          "title": "id",
-          "pattern": "^x-oasis-cti-tc-silver-bullet--"
-        },
-        "aliases": {
-          "type": "array",
-          "description": "Alternative names used to identify this Silver Bullet.",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 1
-        },
-        "first_proposed": {
-          "$ref": "../../../../cti-stix2-json-schemas/schemas/common/timestamp.json",
-          "description": "The time that this Silver Bullet was first proposed."
-        },
-        "world_problem_solved": {
-          "$ref": "../../../../cti-stix2-json-schemas/schemas/common/timestamp.json",
-          "description": "The time that this Silver Bullet was implemented globally and the major world problem solved."
-        },
-      }
+    "id": "x-oasis-cti-tc-assertion-ext.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "assertion-ext",
+    "description": "The Assertion Extension is intented to convey an assertion about the SDO it is included in, which currently is either an Observed Data or an Indicator SDO.",
+    "type": "object",
+    "allOf": [
+	{
+	    "$ref": "../../../../cti-stix2-json-schemas/schemas/common/core.json"
+	},
+	"^x-oasis-cti-tc-assertion-ext$": {
+            "type": "object",
+            "description": "The Assertion Extension is intented to convey an assertion about the SDO it is included in, which currently is either an Observed Data or an Indicator SDO.",
+	    "properties": {
+		"valid_from": {
+		    "$ref": "../../../../cti-stix2-json-schemas/schemas/common/timestamp.json"
+		    "description": "The first time at which this Assertion was considered valid."
+		},
+		"valid_until": {
+		    "$ref": "../../../../cti-stix2-json-schemas/schemas/common/timestamp.json"
+		    "description": "The time at which this Assertion should no longer be considered valid."
+		},		
+		"source": {
+		    "type": "string",
+		    "description": "The source of this assertion."
+		},
+		"threat_level": {
+		    "type": "integer",
+		    "description": "Identifies the threat level that the creator is asserting with respect to this data."
+		},
+		"description": {
+		    "type": "string",
+		    "description": "A description that provides the recipient with a human-readable description of this threat level."
+		}
+	    },
+	    "oneOf": [
+		"valid_from",
+		"valid_until",
+		"source",
+		"threat_level",
+		"description"
+	    ]
+	},
     }
-  ],
-  "required": [
-    "world_problem_solved"
-  ]
 }
