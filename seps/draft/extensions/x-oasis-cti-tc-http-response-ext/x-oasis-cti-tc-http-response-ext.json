@@ -15,7 +15,7 @@
 		"response_url_ref": {
 		    "type": "string",
 		    "description": "Specifies the URL object that specifies the network location that the HTTP Response was received from."
-		}
+		},
 		"response_status": {
 		    "type": "integer",
 		    "description": "Specifies the HTTP status code for the HTTP response, as an integer."
@@ -23,7 +23,7 @@
 		"response_version": {
 		    "type": "string",
 		    "description": "Specifies the HTTP version portion of the HTTP response line, as a lowercase string."
-		}
+		},
 		"response_content_type": {
 		    "type": "string",
 		    "description": "Specifies the HTTP content_type header portion of the HTTP response line, as a lowercase string."
@@ -49,7 +49,7 @@
 		"message_body_length": {
 		    "type": "integer",
 		    "description": "Specifies the length of the HTTP message body, if included, in bytes."
-		}
+		},
 		"message_body_data_ref": {
 		    "type": "string",
 		    "description": "Specifies the data contained in the HTTP message body."
@@ -61,8 +61,7 @@
 	    },
 	    "required": [
 		"response_content_type",
-		"message_body_data_ref",
-		"
+		"message_body_data_ref"
 	    ]
 	},
     }
