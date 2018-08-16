@@ -1,0 +1,68 @@
+{
+    "id": "x-oasis-cti-tc-http-response-ext.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "http-response-ext",
+    "description": "Allows for characterizing HTTP responses to capture things like HTTP redirects and to link HTTP requests with the webpage content that gets returned.",
+    "type": "object",
+    "allOf": [
+	{
+	    "$ref": "../../../../cti-stix2-json-schemas/schemas/common/cyber-observable-core.json"
+	},
+	"^x-oasis-cti-tc-http-response-ext$": {
+            "type": "object",
+            "description": "The HTTP Response Network Traffic extension allows for characterizing HTTP responses to capture things like HTTP redirects and to link HTTP requests with the webpage content that gets returned.",
+	    "properties": {
+		"response_url_ref": {
+		    "type": "string",
+		    "description": "Specifies the URL object that specifies the network location that the HTTP Response was received from."
+		},
+		"response_status": {
+		    "type": "integer",
+		    "description": "Specifies the HTTP status code for the HTTP response, as an integer."
+		},
+		"response_version": {
+		    "type": "string",
+		    "description": "Specifies the HTTP version portion of the HTTP response line, as a lowercase string."
+		},
+		"response_content_type": {
+		    "type": "string",
+		    "description": "Specifies the HTTP content_type header portion of the HTTP response line, as a lowercase string."
+		},
+		"response_header": {
+		    "type": "object",
+		    "description": "",
+		    "patternProperties": {
+			"^[A-Z][a-zA-Z0-9_-]+$": {
+			    "oneOf": [
+				{
+				    "type": "string"
+				}
+			    ]
+			}
+		    },
+		    "additionalProperties": false
+		},					
+		"response_request_ref": {
+		    "type": "string",
+		    "description": "Specifies the HTTP Request object that resulted in this HTTP Response being generated."
+		},
+		"message_body_length": {
+		    "type": "integer",
+		    "description": "Specifies the length of the HTTP message body, if included, in bytes."
+		},
+		"message_body_data_ref": {
+		    "type": "string",
+		    "description": "Specifies the data contained in the HTTP message body."
+		},
+		"redirects_to_ref": {
+		    "type": "string",
+		    "description": "Specifies the URL object that specifies the network location that this HTTP Response is redirecting us to."
+		}
+	    },
+	    "required": [
+		"response_content_type",
+		"message_body_data_ref"
+	    ]
+	},
+    }
+}
