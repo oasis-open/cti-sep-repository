@@ -47,6 +47,9 @@ If you receive an SDO or SCO with its `type` property prefixed with `x-oasis-cti
 * [Process for defining new STIX Cyber Observables (SCOs) as SEPs](#seps-for-new-scos)
 * [Process for defining new STIX Extensions as SEPs](#seps-for-new-stix-extensions-sdo-or-sco)
 
+### A note for non-CTI TC members
+In the instructions below, you'll see references to the CTI TC Slack instance and mailing list. These resources are only available to CTI TC members. In lieu of this, you can email the [SEP Open Repository maintainers](#current-maintainers-of-this-tc-open-repository) or by emailing the [cti-users mailing list](http://lists.oasis-open.org/archives/cti-users/). (Subscribe by sending an blank email to [cti-users-subscribe@lists.oasis-open.org](mailto:cti-users-subscribe@lists.oasis-open.org).)
+
 ### SEPs for new SDOs
 1. Fork this repository.
 2. Give your SEP a name and create a corresponding directory within [`seps/draft/sdos/`](seps/draft/sdos/).
@@ -135,7 +138,7 @@ Questions or comments about this TC Open Repository's activities should be compo
 ## TODO
 - [ ] Add workflow diagram
 - [ ] Define JSON schema for x-oasis-cti-tc-assertion-ext.md
-- [ ] Define JSON schema for x-oasis-cti-tc-http-response-ext.md
+- [X] Define JSON schema for x-oasis-cti-tc-http-response-ext.md
 - [ ] Talk through the draft, active, and deprecated statuses - does the minigroup/bleeding-edge work happen in `draft` on a fork, then get merged into `active` upon PR or is there a more formal review process?
 - [ ] Add a details for non-TC members on how to participate in the process.
 - [ ] Add template and example for SRO SEPs.
