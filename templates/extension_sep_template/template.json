@@ -1,0 +1,44 @@
+{
+  "id": "x-oasis-cti-tc-silver-bullet.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "silver-bullet",
+  "description": "A STIX Silver Bullet solves all the world's problems.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "../../../../cti-stix2-json-schemas/schemas/common/cyber-observable-core.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of this object, which MUST be the literal `x-oasis-cti-tc-silver-bullet`.",
+          "enum": ["x-oasis-cti-tc-silver-bullet"]
+        },
+        "id": {
+          "title": "id",
+          "pattern": "^x-oasis-cti-tc-silver-bullet--"
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Alternative names used to identify this Silver Bullet.",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "first_proposed": {
+          "$ref": "../../../../cti-stix2-json-schemas/schemas/common/timestamp.json",
+          "description": "The time that this Silver Bullet was first proposed."
+        },
+        "world_problem_solved": {
+          "$ref": "../../../../cti-stix2-json-schemas/schemas/common/timestamp.json",
+          "description": "The time that this Silver Bullet was implemented globally and the major world problem solved."
+        },
+      }
+    }
+  ],
+  "required": [
+    "world_problem_solved"
+  ]
+}

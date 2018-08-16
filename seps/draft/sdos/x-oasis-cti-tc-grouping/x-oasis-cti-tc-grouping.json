@@ -1,0 +1,51 @@
+{
+  "id": "x-oasis-cti-tc-grouping.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "grouping",
+  "description": "A Grouping is a set of references to STIX context that the object
+creator wishes to treat as a distinct entity with shared context.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "../../../../cti-stix2-json-schemas/schemas/common/core.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of this object, which MUST be the literal `x-oasis-cti-tc-grouping`.",
+          "enum": ["x-oasis-cti-tc-grouping"]
+        },
+        "id": {
+          "title": "id",
+          "pattern": "^x-oasis-cti-tc-grouping--"
+        },
+        "name": {
+          "type": "string",
+          "description": "A name used to identify the Grouping."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description that provides more details and context about the Grouping, potentially including its purpose and its key characteristics."
+        },
+        "context": {
+          "type": "array",
+            "description": "A description that provides more details and context about the Grouping, potentially including its purpose and its key characteristics. This is an open vocabulary and values **SHOULD** come from the `grouping-context-ov` vocabulary.",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+	"object_refs": {
+          "type": "array",
+          "description": "Specifies the STIX Objects that are referred to by this Grouping.",
+          "items": {
+            "$ref": "../../../../cti-stix2-json-schemas/schemas/common/identifier.json"
+          },
+          "minItems": 1
+        }
+      }
+    }
+  ],
+  "required": ["name", "context"]
+}
