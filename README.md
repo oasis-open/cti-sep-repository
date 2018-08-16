@@ -137,10 +137,10 @@ Questions or comments about this TC Open Repository's activities should be compo
 
 ## TODO
 - [ ] Add workflow diagram
-- [ ] Define JSON schema for x-oasis-cti-tc-assertion-ext.md
+- [X] Define JSON schema for x-oasis-cti-tc-assertion-ext.md
 - [X] Define JSON schema for x-oasis-cti-tc-http-response-ext.md
 - [ ] Talk through the draft, active, and deprecated statuses - does the minigroup/bleeding-edge work happen in `draft` on a fork, then get merged into `active` upon PR or is there a more formal review process?
-- [ ] Add a details for non-TC members on how to participate in the process.
+- [X] Add a details for non-TC members on how to participate in the process.
 - [ ] Add template and example for SRO SEPs.
 - [ ] Discuss how to address SEPs from TC members who want to have their SEPs added to the SEP Registry without submitting their IPR to the CTI TC.
 - [ ] Discuss how to address SEPs from TC members who are only willing to submit their SEP to the CTI TC provided it is incorporated into the official specification without modification.
