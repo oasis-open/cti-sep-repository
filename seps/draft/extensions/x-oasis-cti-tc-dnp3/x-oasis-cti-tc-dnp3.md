@@ -47,8 +47,8 @@ One and only one of the data values MUST be present.
 
 | Property Name         | Type        | Description                                                                         |
 | -------------         | ----        | -----------                                                                         |
-| group (required)      | `integer`   | The function code from the Application Layer.                                       |
-| variant (require)     | `integer`   | The defines the included objects in the Application Layer.                          |
+| group (required)      | `integer`   | The object group from the Object Type Field.                                        |
+| variant (require)     | `integer`   | The object variation from the Object Type Field.                                    |
 | bitstr_hex (optional) | `hex`       | If the data is BSTR, the value is stored in this property.                          |
 | number (optional)     | `integer`   | If the data is one of UINT, INT, FLT, or BCD, the value is stored in this property. |
 | string (optional)     | `string`    | If the data is one of VSTR or UNCD, the value is stored in this property.           |
