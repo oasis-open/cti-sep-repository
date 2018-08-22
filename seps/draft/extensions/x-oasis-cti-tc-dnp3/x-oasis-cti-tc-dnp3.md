@@ -70,4 +70,5 @@ Org | GitHub Repository
 --- | -----------------
 
 ## SEP Definition
-Draft normative text goes here
+
+Zero or one optioinal value MUST be provided.  Which optional property of the dnp3object-type is included is dependent upon the values of the properties, group and variant.  The [IEEE-1815](https://standards.ieee.org/findstds/standard/1815-2012.html) standard specifies which optional property..
