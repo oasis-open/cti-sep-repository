@@ -6,7 +6,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "../common/cyber-observable-core.json"
+      "$ref": "../../../../cti-stix2-json-schemas/schemas/common/cyber-observable-core.json"
     },
     {
       "properties": {
