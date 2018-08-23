@@ -2,8 +2,7 @@
   "id": "x-oasis-cti-tc-grouping.json",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "grouping",
-  "description": "A Grouping is a set of references to STIX context that the object
-creator wishes to treat as a distinct entity with shared context.",
+  "description": "A Grouping is a set of references to STIX context that the object creator wishes to treat as a distinct entity with shared context.",
   "type": "object",
   "allOf": [
     {
@@ -14,7 +13,9 @@ creator wishes to treat as a distinct entity with shared context.",
         "type": {
           "type": "string",
           "description": "The type of this object, which MUST be the literal `x-oasis-cti-tc-grouping`.",
-          "enum": ["x-oasis-cti-tc-grouping"]
+          "enum": [
+            "x-oasis-cti-tc-grouping"
+          ]
         },
         "id": {
           "title": "id",
@@ -30,13 +31,13 @@ creator wishes to treat as a distinct entity with shared context.",
         },
         "context": {
           "type": "array",
-            "description": "A description that provides more details and context about the Grouping, potentially including its purpose and its key characteristics. This is an open vocabulary and values **SHOULD** come from the `grouping-context-ov` vocabulary.",
+          "description": "A description that provides more details and context about the Grouping, potentially including its purpose and its key characteristics. This is an open vocabulary and values **SHOULD** come from the `grouping-context-ov` vocabulary.",
           "items": {
             "type": "string"
           },
           "minItems": 1
         },
-	"object_refs": {
+        "object_refs": {
           "type": "array",
           "description": "Specifies the STIX Objects that are referred to by this Grouping.",
           "items": {
@@ -47,5 +48,8 @@ creator wishes to treat as a distinct entity with shared context.",
       }
     }
   ],
-  "required": ["name", "context"]
+  "required": [
+    "name",
+    "context"
+  ]
 }
