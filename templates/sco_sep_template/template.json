@@ -34,7 +34,7 @@
         "world_problem_solved": {
           "$ref": "../../../../cti-stix2-json-schemas/schemas/common/timestamp.json",
           "description": "The time that this Silver Bullet was implemented globally and the major world problem solved."
-        },
+        }
       }
     }
   ],

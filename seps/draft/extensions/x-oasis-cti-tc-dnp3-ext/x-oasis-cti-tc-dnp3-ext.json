@@ -1,0 +1,139 @@
+{
+  "id": "x-oasis-cti-tc-dnp3-ext.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "dnp3-ext",
+  "description": "The DNP3 Network Extension allows for characterizing DNP3 Network Traffic.",
+  "type": "object",
+  "patternProperties": {
+    "^x-oasis-cti-tc-dnp3-ext$": {
+      "type": "object",
+      "description": "The DNP3 Network Extension allows for characterizing DNP3 Network Traffic.",
+      "properties": {
+        "func_code": {
+          "type": "integer",
+          "description": "The function code from the Application Layer."
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/dnp3object-type"
+          },
+          "description": "This defines the included objects in the Application Layer."
+        },
+        "iin": {
+          "type": "integer",
+          "description": "The value of the IIN field."
+        },
+        "broadcast": {
+          "type": "boolean",
+          "description": "This specifies the IIN1.0 if it is present."
+        },
+        "class1": {
+          "type": "boolean",
+          "description": "This specifies the IIN1.1 if it is present."
+        },
+        "class2": {
+          "type": "boolean",
+          "description": "This specifies the IIN1.2 if it is present."
+        },
+        "class3": {
+          "type": "boolean",
+          "description": "This specifies the IIN1.3 if it is present."
+        },
+        "needtime": {
+          "type": "boolean",
+          "description": "This specifies the IIN1.4 if it is present."
+        },
+        "localcontrol": {
+          "type": "boolean",
+          "description": "This specifies the IIN1.5 if it is present."
+        },
+        "devicetrouble": {
+          "type": "boolean",
+          "description": "This specifies the IIN1.6 if it is present."
+        },
+        "devicerestart": {
+          "type": "boolean",
+          "description": "This specifies the IIN1.6 if it is present."
+        },
+        "nofunccodesup": {
+          "type": "boolean",
+          "description": "This specifies the IIN2.0 if it is present."
+        },
+        "objectunkn": {
+          "type": "boolean",
+          "description": "This specifies the IIN2.1 if it is present."
+        },
+        "paramerror": {
+          "type": "boolean",
+          "description": "This specifies the IIN2.2 if it is present."
+        },
+        "eventbufovrflw": {
+          "type": "boolean",
+          "description": "This specifies the IIN2.3 if it is present."
+        },
+        "alrdyexec": {
+          "type": "boolean",
+          "description": "This specifies the IIN2.4 if it is present."
+        },
+        "confcorrupt": {
+          "type": "boolean",
+          "description": "This specifies the IIN2.5 if it is present."
+        },
+        "uns": {
+          "type": "boolean",
+          "description": "The value of the UNS field (unsolicited response or confirmation of unsolicited response) in the Application control octet."
+        }
+      },
+      "required": [
+        "func_code"
+      ]
+    }
+  },
+  "definitions": {
+    "dnp3object-type": {
+      "type": "object",
+      "properties": {
+        "group": {
+          "type": "integer",
+          "description": "The function code from the Application Layer."
+        },
+        "variant": {
+          "type": "integer",
+          "description": "The defines the included objects in the Application Layer."
+        },
+        "bitstr_hex": {
+          "$ref": "../../../../cti-stix2-json-schemas/schemas/common/hex.json",
+          "description": "Specifies the data contained in the registry value."
+        },
+        "number": {
+          "type": "integer",
+          "description": "If the data is one of UINT, INT, FLT, or BCD, the value is stored in this property."
+        },
+        "string": {
+          "type": "string",
+          "description": "If the data is one of VSTR or UNCD, the value is stored in this property."
+        },
+        "binary_bin": {
+          "$ref": "../../../../cti-stix2-json-schemas/schemas/common/binary.json",
+          "description": "If the data is OSTR, the value is stored in this property."
+        },
+        "timestamp": {
+          "$ref": "../../../../cti-stix2-json-schemas/schemas/common/timestamp.json",
+          "description": "If the data is DNP3TIME, the value is stored in this property."
+        },
+        "required": [
+          "group",
+          "variant"
+        ],
+        "oneOf": [
+          "bitstr_hex",
+          "number",
+          "string",
+          "binary_bin",
+          "time"
+        ]
+      }
+    }
+  }
+}

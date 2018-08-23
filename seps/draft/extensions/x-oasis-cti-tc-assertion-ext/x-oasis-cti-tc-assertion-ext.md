@@ -1,11 +1,11 @@
 # SEP Name
-Assertion Extensions
+Assertion Extension
 
 ## SEP Identifier
 `x-oasis-cti-tc-assertion-ext`
 
 ## SEP Description
-The Assertion Extension is intented to convey an assertion about the
+The Assertion Extension is intended to convey an assertion about the
 SDO it is included in, which currently is either an Observed Data or
 an Indicator SDO. It allows a content creator to communicate
 information such as threat level, categorization, etc. for a piece of

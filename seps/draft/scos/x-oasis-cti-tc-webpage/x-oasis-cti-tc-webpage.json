@@ -1,58 +1,59 @@
 {
-    "id": "x-oasis-cti-tc-webpage.json",
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "x-oasis-cti-tc-webpage",
-    "description": "The Webpage SCO allows the information from an (x)HTML webpage to be captured.",
-    "type": "object",
-    "allOf": [
-	{
-            "$ref": "../../../../cti-stix2-json-schemas/schemas/common/cyber-observable-core.json"
-	},
-	{
-	    "properties": {
-		"type": {
-		    "type": "string",
-		    "description": "The type of this object, which MUST be the literal `x-oasis-cti-tc-webpage`.",
-		    "enum": ["x-oasis-cti-tc-webpage"]
-		},
-		"url_ref": {
-		    "type": "string",
-		    "description": "Specifies the location of the webpage using a URL object.",
-		},
-		"head": {
-		    "type": "array",
-		    "description": "Specifies alist of type string where each list item contains HTML excerpts from the head element of the HTML content.",
-		    "items": {
-			"type": "string"
-		    }
-		},
-		"body": {
-		    "type": "array",
-		    "description": "Specifies alist of type string where each list item contains HTML excerpts from the body element of the HTML content.",
-		    "items": {
-			"type": "string"
-		    }
-		},
-		"webpage_data_ref": {
-		    "type": "string",
-		    "description": "Specifies the complete contents of the webpage, including both the headers and body, as a reference to an artifact SCO."
-		},
-		"redirects_to_ref": {
-		    "type": "string",
-		    "description": "Specifies the next URL that this webpage redirects the client to, as a reference to as url SCO."
-		},
-		"loads_content_from_refs": {
-		    "type": "array",
-		    "description": "Specifies a list of URLs that this webpage instructs the web client to load content from, with each list entry as a reference to a different url object.
-",
-		    "items": {
-			"type": "string"
-		    }
-		}
-	    }
-	}
-    ],
-    "required": [
-	"type"
-    ]
+  "id": "x-oasis-cti-tc-webpage.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "x-oasis-cti-tc-webpage",
+  "description": "The Webpage SCO allows the information from an (x)HTML webpage to be captured.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "../../../../cti-stix2-json-schemas/schemas/common/cyber-observable-core.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of this object, which MUST be the literal `x-oasis-cti-tc-webpage`.",
+          "enum": [
+            "x-oasis-cti-tc-webpage"
+          ]
+        },
+        "url_ref": {
+          "type": "string",
+          "description": "Specifies the location of the webpage using a URL object."
+        },
+        "head": {
+          "type": "array",
+          "description": "Specifies alist of type string where each list item contains HTML excerpts from the head element of the HTML content.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "body": {
+          "type": "array",
+          "description": "Specifies alist of type string where each list item contains HTML excerpts from the body element of the HTML content.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "webpage_data_ref": {
+          "type": "string",
+          "description": "Specifies the complete contents of the webpage, including both the headers and body, as a reference to an artifact SCO."
+        },
+        "redirects_to_ref": {
+          "type": "string",
+          "description": "Specifies the next URL that this webpage redirects the client to, as a reference to as url SCO."
+        },
+        "loads_content_from_refs": {
+          "type": "array",
+          "description": "Specifies a list of URLs that this webpage instructs the web client to load content from, with each list entry as a reference to a different url object.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "type"
+  ]
 }

@@ -2,24 +2,37 @@
 DNP3
 
 ## SEP Identifier
-`x-oasis-cti-tc-dnp3`
+`x-oasis-cti-tc-dnp3-ext`
 
 ## SEP Description
-Add support for the SCADA protocol [DNP3](https://en.wikipedia.org/wiki/DNP3)
+Allows for characterizing SCADA protocol [DNP3](https://en.wikipedia.org/wiki/DNP3) Network Traffic.
 
 ## SEP Use Cases
-* Support common ICS/SCADA Protocol
+* Support common ICS/SCADA Protocol.
 * Allow utilities to describe and detect possible attacks.
 
 ## SEP Extension Context
-
 This is an extension to the `network-traffic` SCO object.
 
-### Properties
+## SEP Slack Channel
+TBD
 
+## SEP Definition
+Draft normative text goes here
 
-#### dnp3-ext object
+## SEP Sponsors
+Org | Primary Contact
+--- | ---------------
+New Context | John-Mark Gurney
 
+## POC Implementations
+Org | GitHub Repository
+--- | -----------------
+New Context | TBD
+
+## SEP Definition
+
+## Properties
 | Property Name                 | Type                             | Description                                                                                                                                                                                                  |
 | -------------                 | ----                             | -----------                                                                                                                                                                                                  |
 | **func_code** (required)      | `integer`                        | The function code from the Application Layer.                                                                                                                                                                |
@@ -41,33 +54,17 @@ This is an extension to the `network-traffic` SCO object.
 | **confcorrupt** (optional)    | `boolean`                        | This specifies the IIN2.5 if it is present.  As IIN is only present on a response, the func_code MUST be greater than or equal to 129 when this field is present.                                            |
 | **uns** (optional)            | `boolean`                        | The value of the UNS field (unsolicited response or confirmation of unsolicited response) in the Application control octet.  If the value is not provided, it is not determined if this bit is set or clear. |
 
-#### dnp3object-type object
-
+### `dnp3object-type`
 One and only one of the data values MUST be present.
 
 | Property Name         | Type        | Description                                                                         |
 | -------------         | ----        | -----------                                                                         |
 | group (required)      | `integer`   | The function code from the Application Layer.                                       |
-| variant (require)     | `integer`   | The defines the included objects in the Application Layer.                          |
+| variant (required)     | `integer`   | Defines the included objects in the Application Layer.                          |
 | bitstr_hex (optional) | `hex`       | If the data is BSTR, the value is stored in this property.                          |
 | number (optional)     | `integer`   | If the data is one of UINT, INT, FLT, or BCD, the value is stored in this property. |
 | string (optional)     | `string`    | If the data is one of VSTR or UNCD, the value is stored in this property.           |
 | binary_bin (optional) | `binary`    | If the data is OSTR, the value is stored in this property.                          |
 | time (optional)       | `timestamp` | If the data is DNP3TIME, the value is stored in this property.                      |
 
-Note: SET of n and VARIANT are not specified yet.
-
-## SEP Slack Channel
-TBD
-
-## SEP Sponsors
-Org | Primary Contact
---- | ---------------
-New Context | John-Mark Gurney
-
-## POC Implementations
-Org | GitHub Repository
---- | -----------------
-
-## SEP Definition
-Draft normative text goes here
+Note: SET of n and VARIANT are not yet specified.
