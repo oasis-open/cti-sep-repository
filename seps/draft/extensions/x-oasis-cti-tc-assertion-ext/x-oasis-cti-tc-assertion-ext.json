@@ -9,6 +9,10 @@
       "type": "object",
       "description": "The Assertion Extension is intended to convey an assertion about the SDO it is included in, which currently is either an Observed Data or an Indicator SDO.",
       "properties": {
+        "sep_version": {
+          "type": "integer",
+          "description": "The version of this SEP."
+        },
         "valid_from": {
           "$ref": "../../../../cti-stix2-json-schemas/schemas/common/timestamp.json",
           "description": "The first time at which this Assertion was considered valid."
@@ -30,12 +34,15 @@
           "description": "A description that provides the recipient with a human-readable description of this threat level."
         }
       },
-      "oneOf": [
+      "anyOf": [
         "valid_from",
         "valid_until",
         "source",
         "threat_level",
         "description"
+      ],
+      "required": [
+        "sep_version"
       ]
     }
   }

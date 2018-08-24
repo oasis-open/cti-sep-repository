@@ -4,6 +4,9 @@ Grouping
 ## SEP Identifier
 `x-oasis-cti-tc-grouping`
 
+## SEP Version
+1
+
 ## SEP Description
 A Grouping is a set of references to STIX context that the object
 creator wishes to treat as a distinct entity with shared context. For
@@ -40,6 +43,7 @@ New Context | TBD
 
 | Property Name              | Type                        | Description                                                                                                                                                                                                                                     |
 | -------------              | ----                        | -----------                                                                                                                                                                                                                                     |
+| **sep_version** (required)  | `integer`   | [The version of the SEP](#sep-version)                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **name** (required)        | `string`                    | A name used to identify the Grouping.                                                                                                                                                                                                           |
 | **description** (optional) | `string`                    | A description that provides more details and context about the Grouping, potentially including its purpose and its key characteristics.                                                                                                         |
 | **context** (required)     | `open-vocab`                | A description that provides more details and context about the Grouping, potentially including its purpose and its key characteristics. <br /> This is an open vocabulary and values **SHOULD** come from the `grouping-context-ov` vocabulary. |

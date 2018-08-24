@@ -4,6 +4,9 @@ DNP3
 ## SEP Identifier
 `x-oasis-cti-tc-dnp3-ext`
 
+## SEP Version
+1
+
 ## SEP Description
 Allows for characterizing SCADA protocol [DNP3](https://en.wikipedia.org/wiki/DNP3) Network Traffic.
 
@@ -32,6 +35,7 @@ New Context | TBD
 ## Properties
 | Property Name                 | Type                             | Description                                                                                                                                                                                                  |
 | -------------                 | ----                             | -----------                                                                                                                                                                                                  |
+| **sep_version** (required)  | `integer`   | [The version of the SEP](#sep-version)                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **func_code** (required)      | `integer`                        | The function code from the Application Layer.                                                                                                                                                                |
 | **objects** (optional)        | `list` of type `dnp3object-type` | This defines the included objects in the Application Layer.                                                                                                                                                  |
 | **iin** (optional)            | `integer`                        | The value of the IIN field.  They are also broken out in additional properties.  As IIN is only present on a response, the func_code MUST be greater than or equal to 129 when this field is present.        |
