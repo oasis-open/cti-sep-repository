@@ -4,6 +4,9 @@ Assertion Extension
 ## SEP Identifier
 `x-oasis-cti-tc-assertion-ext`
 
+## SEP Version
+1
+
 ## SEP Description
 The Assertion Extension is intended to convey an assertion about the
 SDO it is included in, which currently is either an Observed Data or
@@ -23,9 +26,6 @@ may be communicated using the Opinion SDO.)
 ## SEP Extension Context
 * Extends the Indicator and Observed Data SDOs.
 
-## SEP Slack Channel
-#assertion-extension-dev
-
 ## SEP Sponsors
 Org | Primary Contact
 --- | ---------------
@@ -35,16 +35,17 @@ New Context | Trey Darley
 ## POC Implementations
 Org | GitHub Repository
 --- | -----------------
-IBM | https://github.com/...
-New Context | https://github.com/...
+IBM | TBD
+New Context | TBD
 
 ## SEP Definition
 
 ### Properties
 | Property Name               | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | -------------               | ----        | -----------                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **sep_version** (required)  | `integer`   | [The version of the SEP](#sep-version)                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **valid_from** (optional)   | `timestamp` | The first time at which this Assertion was considered valid. If the `valid_until` property is provided, then the value **MUST** be greater than or equal to the value in `valid_until`.<br /><br />If the `valid_from` property is omitted, then there is no constraint on the first time for which the Assertion should be considered valid.                                                                                           |
-| **valid_until** (optional)   | `timestamp` | The time at which this Assertion should no longer be considered valid. If the `valid_from` property is provided, then the value **MUST** be less than or equal to the value in `valid_from`.<br /><br />If the `valid_until` property is omitted, then there is no constraint on the latest time for which the Assertion should be considered valid.                                                                                    |
+| **valid_until** (optional)  | `timestamp` | The time at which this Assertion should no longer be considered valid. If the `valid_from` property is provided, then the value **MUST** be less than or equal to the value in `valid_from`.<br /><br />If the `valid_until` property is omitted, then there is no constraint on the latest time for which the Assertion should be considered valid.                                                                                    |
 | **source** (optional)       | `string`    | The source of this assertion.                                                                                                                                                                                                                                                                                                                                                                                                           |
 | **threat_level** (optional) | `integer`   | The `threat_level` property identifies the threat level that the creator is asserting with respect to this data. It should be noted that this value **SHOULD NOT** assume anything about the recipient of the assertion; that is, the value should be receiver-agnostic and not take into account any specifics with regard to environment, industry, etc.<br /><br />If present, the value **MUST** be a number in the range of 0-100. |
 | **description** (optional)  | `string`    | A description that provides the recipient with a human-readable description of this threat level.                                                                                                                                                                                                                                                                                                                                       |

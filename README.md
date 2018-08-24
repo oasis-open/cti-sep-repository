@@ -23,8 +23,7 @@ Currently, the CTI TC have agreed to limit the scope of SEPs to contributions wh
   * New STIX Object Extensions
   
 The following types of SEPs are presently out of scope:
-  * Redefining an existing property on an object to add clarity or enhanced meaning.
-  * Redefining the semantics of existing SDOs, SROs, and/or SCOs (or properties thereof) which are already defined in CSDs and/or CSs.
+  * Redefining the semantics of properties of existing SDOs, SROs, and/or SCOs already defined in CTI TC Committee Specification Drafts and/or Committee Specifications.
   * Adding to or redefining the semantics of STIX Patterning (including, but not limited to adding new elements, expressions, operators, or language elements). 
 
 ## Background
@@ -37,8 +36,7 @@ If you receive an SDO or SCO with its `type` property prefixed with `x-oasis-cti
   * Note that SEP versions in the Registry are based on the corresponding git commit SHA1 hash.
 
 # SEP statuses
-* `draft`: for immature/bleeding-edge SEPs
-* `active`: for SEPs that are actually in production use and done enough to be debated for inclusion in a CSD
+* `draft`: for SEPs which are in active development and/or production use
 * `deprecated`: for SEPs which have been EOL'ed or withdrawn
 * `integrated`: for SEPs which have been EOL'ed due to having been published in a CSD
 
@@ -48,19 +46,16 @@ If you receive an SDO or SCO with its `type` property prefixed with `x-oasis-cti
 * [Process for defining new STIX Extensions as SEPs](#seps-for-new-stix-extensions-sdo-or-sco)
 
 ### A note for non-CTI TC members
-In the instructions below, you'll see references to the CTI TC Slack instance and mailing list. These resources are only available to CTI TC members. In lieu of this, you can email the [SEP Open Repository maintainers](#current-maintainers-of-this-tc-open-repository) or by emailing the [cti-users mailing list](http://lists.oasis-open.org/archives/cti-users/). (Subscribe by sending an blank email to [cti-users-subscribe@lists.oasis-open.org](mailto:cti-users-subscribe@lists.oasis-open.org).)
+The majority of the CTI TC's work is conducted via a Slack instance and mailing lists which are only available to CTI TC members. In lieu of this, you can email the [SEP Open Repository maintainers](#current-maintainers-of-this-tc-open-repository) or by emailing the [cti-users mailing list](http://lists.oasis-open.org/archives/cti-users/). (Subscribe by sending an blank email to [cti-users-subscribe@lists.oasis-open.org](mailto:cti-users-subscribe@lists.oasis-open.org).)
 
 ### SEPs for new SDOs
 1. Fork this repository.
 2. Give your SEP a name and create a corresponding directory within [`seps/draft/sdos/`](seps/draft/sdos/).
 3. Copy [`templates/sdo_sep_template/template.md`](templates/sdo_sep_template/template.md) and [`templates/sdo_sep_template/template.json`](templates/sdo_sep_template/template.json) into the directory you just created (s/template/your SEP name).
 4. Start by filling out as much as you can of \<your SEP name\>.md.
-5. Ping the CTI TC via Slack on the #general channel to let folks know what you're working on and where to find it.
-6. Create a dedicate CTI TC Slack channel for collaboration.
-7. Define the object's schema in \<your SEP name\>.json.
-8. Rinse and repeat on Slack and minigroup working calls until you feel the work is ready to be presented to the wider CTI TC.
-9. Barring substantive objections by the CTI TC, do a pull request against this git repo.
-10. ...profit!
+5. Define your SEP's data model in JSON Schema in \<your SEP name\>.json.
+6. Do a pull request against this git repo.
+7. ...profit!
 
 #### An example
 If you look under [`seps/draft/sdos/x-oasis-cti-tc-grouping/`](seps/draft/sdos/x-oasis-cti-tc-grouping/) you'll see the Grouping proposal (taken from the [STIX 2.1-Working Concepts Google Doc](https://docs.google.com/document/d/15qD9KBQcVcY4FlG9n_VGhqacaeiLlNcQ7zVEjc8I3b4/edit#heading=h.t56pn7elv6u7) defined as a SEP. There's Markdown (for the humans) and JSON Schema (for the machines.)
@@ -70,12 +65,9 @@ If you look under [`seps/draft/sdos/x-oasis-cti-tc-grouping/`](seps/draft/sdos/x
 2. Give your SEP a name and create a corresponding directory within [`seps/draft/scos/`](seps/draft/scos/).
 3. Copy [`templates/sco_sep_template/template.md`](templates/sco_sep_template/template.md) and [`templates/sco_sep_template/template.json`](templates/sco_sep_template/template.json) into the directory you just created (s/template/your SEP name).
 4. Start by filling out as much as you can of \<your SEP name\>.md.
-5. Ping the CTI TC via Slack on the #general channel to let folks know what you're working on and where to find it.
-6. Create a dedicate CTI TC Slack channel for collaboration.
-7. Define the object's schema in \<your SEP name\>.json.
-8. Rinse and repeat on Slack and minigroup working calls until you feel the work is ready to be presented to the wider CTI TC.
-9. Barring substantive objections by the CTI TC, do a pull request against this git repo.
-10. ...profit!
+5. Define your SEP's data model in JSON Schema in \<your SEP name\>.json.
+6. Do a pull request against this git repo.
+7. ...profit!
 
 #### An example
 If you look under [`seps/draft/scos/x-oasis-cti-tc-webpage/`](seps/draft/scos/x-oasis-cti-tc-webpage/) you'll see the Webpage proposal (based on [Terry MacDonald's proposal to the TC mailing list](https://lists.oasis-open.org/archives/cti-stix/201712/msg00003.html)) defined as a SEP. There's Markdown (for the humans) and JSON Schema (for the machines.)
@@ -85,12 +77,9 @@ If you look under [`seps/draft/scos/x-oasis-cti-tc-webpage/`](seps/draft/scos/x-
 2. Give your SEP a name and create a corresponding directory within [`seps/draft/extensions/`](seps/draft/extensions/).
 3. Copy [`templates/extension_sep_template/template.md`](templates/extension_sep_template/template.md) and [`templates/extension_sep_template/template.json`](templates/extension_sep_template/template.json) into the directory you just created (s/template/your SEP name).
 4. Start by filling out as much as you can of \<your SEP name\>.md.
-5. Ping the CTI TC via Slack on the #general channel to let folks know what you're working on and where to find it.
-6. Create a dedicate CTI TC Slack channel for collaboration.
-7. Define the object's schema in \<your SEP name\>.json.
-8. Rinse and repeat on Slack and minigroup working calls until you feel the work is ready to be presented to the wider CTI TC.
-9. Barring substantive objections by the CTI TC, do a pull request against this git repo.
-10. ...profit!
+5. Define your SEP's data model in JSON Schema in \<your SEP name\>.json.
+6. Do a pull request against this git repo.
+7. ...profit!
 
 #### Examples
 * If you look under [`seps/draft/extensions/x-oasis-cti-tc-http-response-ext/`](seps/draft/extensions/x-oasis-cti-tc-http-response-ext/) you'll see the HTTP Response (SCO) Extension (based on [Terry MacDonald's proposal to the TC mailing list](https://lists.oasis-open.org/archives/cti-stix/201712/msg00003.html)) defined as a SEP. There's Markdown (for the humans) and there will be JSON Schema (for the machines) just as soon as I get a few minutes.
@@ -137,10 +126,6 @@ Questions or comments about this TC Open Repository's activities should be compo
 
 ## TODO
 - [ ] Add workflow diagram
-- [X] Define JSON schema for x-oasis-cti-tc-assertion-ext.md
-- [X] Define JSON schema for x-oasis-cti-tc-http-response-ext.md
-- [ ] Talk through the draft, active, and deprecated statuses - does the minigroup/bleeding-edge work happen in `draft` on a fork, then get merged into `active` upon PR or is there a more formal review process?
-- [X] Add a details for non-TC members on how to participate in the process.
 - [ ] Add template and example for SRO SEPs.
 - [ ] Discuss how to address SEPs from TC members who want to have their SEPs added to the SEP Registry without submitting their IPR to the CTI TC.
 - [ ] Discuss how to address SEPs from TC members who are only willing to submit their SEP to the CTI TC provided it is incorporated into the official specification without modification.

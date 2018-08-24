@@ -4,6 +4,9 @@ Grouping
 ## SEP Identifier
 `x-oasis-cti-tc-grouping`
 
+## SEP Version
+1
+
 ## SEP Description
 A Grouping is a set of references to STIX context that the object
 creator wishes to treat as a distinct entity with shared context. For
@@ -16,13 +19,9 @@ Grouping SDO contains a list of references to SDOs and SROs along with
 an explicit statement of the context shared by the content, a textual
 description and the name of the grouping.
 
-
 ## SEP Use Cases
 * Sharing related content which isn't appropriate for publication in a
   STIX Report.
-
-## SEP Slack Channel
-#grouping-dev
 
 ## SEP Sponsors
 Org | Primary Contact
@@ -33,8 +32,8 @@ New Context | Trey Darley
 ## POC Implementations
 Org | GitHub Repository
 --- | -----------------
-CIRCL | https://github.com/...
-New Context | https://github.com/...
+CIRCL | TDB
+New Context | TBD
 
 ## SEP Definition
 
@@ -44,11 +43,11 @@ New Context | https://github.com/...
 
 | Property Name              | Type                        | Description                                                                                                                                                                                                                                     |
 | -------------              | ----                        | -----------                                                                                                                                                                                                                                     |
+| **sep_version** (required)  | `integer`   | [The version of the SEP](#sep-version)                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **name** (required)        | `string`                    | A name used to identify the Grouping.                                                                                                                                                                                                           |
 | **description** (optional) | `string`                    | A description that provides more details and context about the Grouping, potentially including its purpose and its key characteristics.                                                                                                         |
 | **context** (required)     | `open-vocab`                | A description that provides more details and context about the Grouping, potentially including its purpose and its key characteristics. <br /> This is an open vocabulary and values **SHOULD** come from the `grouping-context-ov` vocabulary. |
-| **object_refs** (optional) | `list` of type `identifier` | Specifies the STIX Objects that are referred to by this Grouping.                                                                                                                                                                               |
-
+| **object_refs** (optional) | `list` of type `identifier` | Specifies the STIX Objects that are referred to by this Grouping.                                                                                                                                                
 ### Relationships
 There are no Grouping-specific SROs defined. The usual embedded
 references defined in SDO Common Properties (`created_by_ref`, etc)

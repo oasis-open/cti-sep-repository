@@ -4,6 +4,9 @@ HTTP Response Extension
 ## SEP Identifier
 `x-oasis-cti-tc-http-response-ext`
 
+## SEP Version
+1
+
 ## SEP Description
 Allows for characterizing HTTP responses to capture things like HTTP
 redirects and to link HTTP requests with the webpage content that gets
@@ -16,9 +19,6 @@ returned.
 * Extends the Network Traffic SCO. Mainly intended to be used in
   conjunction with the [`x-oasis-cti-tc-webpage`](../../scos/x-oasis-cti-tc-webpage) SCO.
 
-## SEP Slack Channel
-#http-response-extension-dev
-
 ## SEP Sponsors
 Org | Primary Contact
 --- | ---------------
@@ -28,14 +28,15 @@ New Context | Trey Darley
 ## POC Implementations
 Org | GitHub Repository
 --- | -----------------
-Cosive | https://github.com/...
-New Context | https://github.com/...
+Cosive | TBD
+New Context | TBD
 
 ## SEP Definition
 
 ## Properties
 | Property Name                        | Type         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | -------------                        | ----         | -----------                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **sep_version** (required)           | `integer`    | [The version of the SEP](#sep-version)                                                                                                                                                                                                                                                                                                                                                                                                          |
 | **response_url_ref** (optional)      | `object-ref` | Specifies the URL object that specifies the network location that the HTTP Response was received from.<br /><br />The object referenced in this property **MUST** be of type `url`.                                                                                                                                                                                                                                                             |
 | **response_status** (optional)       | `integer`    | Specifies the HTTP status code for the HTTP response, as an integer.                                                                                                                                                                                                                                                                                                                                                                            |
 | **response_version** (optional)      | `string`     | Specifies the HTTP version portion of the HTTP response line, as a lowercase string.                                                                                                                                                                                                                                                                                                                                                            |
@@ -43,7 +44,7 @@ New Context | https://github.com/...
 | **response_header** (optional)       | `dictionary` | Specifies all of the HTTP header fields that may be found in the HTTP server response, as a dictionary. All HTTP header fields must be specified in the order they are shown in the HTTP response if the `response_header` property is used.<br /><br />Each key in the dictionary **MUST** be the name of the header field and SHOULD preserve case, e.g., `User-Agent`. The corresponding value for each dictionary key **MUST** be a string. |
 | **response_request_ref** (optional)  | `object-ref` | Specifies the HTTP Request object that resulted in this HTTP Response being generated.<br /><br />The object referenced in this property **MUST** be of type `network-traffic` with a `http-request-ext` extension.                                                                                                                                                                                                                             |
 | **message_body_length** (optional)   | `integer`    | Specifies the length of the HTTP message body, if included, in bytes.                                                                                                                                                                                                                                                                                                                                                                           |
-| **message_body_data_ref** (required) | `object-ref` | Specifies the data contained in the HTTP message body.<br /><br />The object referenced in this property **MUST** be of type `artifact` or of type `x-oasis-cti-tc-webpage`.                                                                                                                                                                                                                                                                                   |
+| **message_body_data_ref** (required) | `object-ref` | Specifies the data contained in the HTTP message body.<br /><br />The object referenced in this property **MUST** be of type `artifact` or of type `x-oasis-cti-tc-webpage`.                                                                                                                                                                                                                                                                    |
 | **redirects_to_ref** (optional)      | `object-ref` | Specifies the URL object that specifies the network location that this HTTP Response is redirecting us to. This property is used to relate the URL that the HTTP client will be redirected to if it receives a HTTP 3xx Redirection Status code.<br /><br />The object referenced in this property **MUST** be of type `url`.                                                                                                                   |
 ## Examples
 

@@ -4,6 +4,9 @@ Webpage SCO
 ## SEP Identifier
 `x-oasis-cti-tc-webpage`
 
+## SEP Version
+1
+
 ## SEP Description
 The Webpage SCO allows the information from an (x)HTML webpage to be
 captured. The design is flexible enough to allow only the important or
@@ -23,9 +26,6 @@ useful information, such as:
 ## SEP Extension Context
 * Often used in conjunction with the [`x-oasis-cti-tc-http-response-ext`](../../extensions/x-oasis-cti-tc-http-response-ext/) Extension.
 
-## SEP Slack Channel
-#webpage-dev
-
 ## SEP Sponsors
 Org | Primary Contact
 --- | ---------------
@@ -35,9 +35,8 @@ New Context | Trey Darley
 ## POC Implementations
 Org | GitHub Repository
 --- | -----------------
-Mitre | https://github.com/...
-New Context | https://github.com/...
-
+Cosive | TBD
+New Context | TBD
 
 ## SEP Definition
 The Webpage SCO represents an instance of a webpage, corresponding to
@@ -67,6 +66,7 @@ this can be achieved by referencing an Artifact SCO via the
 
 | Property Name                         | Type                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | -------------                         | ----                        | -----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **sep_version** (required)  | `integer`   | [The version of the SEP](#sep-version)                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **url_ref** (optional)                | `object-ref`                | Specifies the location of the webpage using a URL object.<br /><br />The object referenced in this property **MUST** be of type `url`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | **head** (optional)                   | `list` of type `string`     | Specifies a `list` of type `string` where each list item contains HTML excerpts from the *head* element of the HTML content (as defined in the latest [W3C HTML Recommendation](https://www.w3.org/TR/#tr_HTML)) of the webpage.<br /><br />Each list item **MUST** be an individual HTML element and **MUST** have come from the head element of the webpage.<br /><br />The list item string **MUST** begin with the HTML element start tag and end with the HTML element end tag, e.g. `<title>My Evil Site</title>`. All HTML **MUST** be escaped so that it can be represented within JSON as per [RFC7159](https://tools.ietf.org/html/rfc7159.html).<br /><br />List values **MUST** appear in the same order as present in the raw HTML of the webpage.                 |
 | **body** (optional)                   | `list` of type `string`     | Specifies a `list` of type `string` where each list item contains HTML excerpts from the *body* element of the HTML content (as defined in the latest [W3C HTML Recommendation](https://www.w3.org/TR/#tr_HTML)) of the webpage.<br /><br />Each list item **MUST** be an individual HTML element and **MUST** have come from the body element of the webpage.<br /><br />The list item string **MUST** begin with the HTML element start tag and end with the HTML element end tag, e.g. `<a href="http://badsite.com">Click here</a>`. All HTML **MUST** be escaped so that it can be represented within JSON as per [RFC7159](https://tools.ietf.org/html/rfc7159.html).<br /><br />List values **MUST** appear in the same order as present in the raw HTML of the webpage. |

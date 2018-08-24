@@ -9,6 +9,10 @@
       "type": "object",
       "description": "The HTTP Response Network Traffic extension allows for characterizing HTTP responses to capture things like HTTP redirects and to link HTTP requests with the webpage content that gets returned.",
       "properties": {
+        "sep_version": {
+          "type": "integer",
+          "description": "The version of this SEP."
+        },
         "response_url_ref": {
           "type": "string",
           "description": "Specifies the URL object that specifies the network location that the HTTP Response was received from."
@@ -58,7 +62,8 @@
       },
       "required": [
         "response_content_type",
-        "message_body_data_ref"
+        "message_body_data_ref",
+        "sep_version"
       ]
     }
   }

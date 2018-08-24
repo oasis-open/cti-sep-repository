@@ -13,6 +13,10 @@
           "type": "integer",
           "description": "The function code from the Application Layer."
         },
+        "sep_version": {
+          "type": "integer",
+          "description": "The version of this SEP."
+        },
         "objects": {
           "type": "array",
           "items": {
@@ -86,7 +90,8 @@
         }
       },
       "required": [
-        "func_code"
+        "func_code",
+        "sep_version"
       ]
     }
   },

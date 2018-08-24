@@ -17,6 +17,10 @@
             "x-oasis-cti-tc-webpage"
           ]
         },
+        "sep_version": {
+          "type": "integer",
+          "description": "The version of this SEP."
+        },
         "url_ref": {
           "type": "string",
           "description": "Specifies the location of the webpage using a URL object."
@@ -54,6 +58,7 @@
     }
   ],
   "required": [
-    "type"
+    "type",
+    "sep_version"
   ]
 }

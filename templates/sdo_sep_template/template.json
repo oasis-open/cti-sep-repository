@@ -19,6 +19,10 @@
 		    "title": "id",
 		    "pattern": "^x-oasis-cti-tc-silver-bullet--"
 		},
+		"sep_version": {
+		    "type": "integer",
+		    "description": "The version of this SEP."
+		},
 		"name": {
 		    "type": "string",
 		    "description": "The name used to identify the Silver Bullet."
@@ -47,6 +51,7 @@
 	}
     ],
     "required": [
-	"name"
+	"name",
+	"sep_version"
     ]
 }

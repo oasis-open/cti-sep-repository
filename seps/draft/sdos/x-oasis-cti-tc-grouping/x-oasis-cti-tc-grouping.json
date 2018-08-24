@@ -21,6 +21,10 @@
           "title": "id",
           "pattern": "^x-oasis-cti-tc-grouping--"
         },
+        "sep_version": {
+          "type": "integer",
+          "description": "The version of this SEP."
+        },
         "name": {
           "type": "string",
           "description": "A name used to identify the Grouping."
@@ -50,6 +54,7 @@
   ],
   "required": [
     "name",
-    "context"
+    "context",
+    "sep_version"
   ]
 }

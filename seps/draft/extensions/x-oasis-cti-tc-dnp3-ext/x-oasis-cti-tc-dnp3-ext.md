@@ -4,6 +4,9 @@ DNP3
 ## SEP Identifier
 `x-oasis-cti-tc-dnp3-ext`
 
+## SEP Version
+1
+
 ## SEP Description
 Allows for characterizing SCADA protocol [DNP3](https://en.wikipedia.org/wiki/DNP3) Network Traffic.
 
@@ -13,9 +16,6 @@ Allows for characterizing SCADA protocol [DNP3](https://en.wikipedia.org/wiki/DN
 
 ## SEP Extension Context
 This is an extension to the `network-traffic` SCO object.
-
-## SEP Slack Channel
-TBD
 
 ## SEP Definition
 Zero or one optional value **MUST** be provided. Which optional property of the dnp3object-type is included is dependent upon the values of the properties, group and variant. The [IEEE-1815](https://standards.ieee.org/findstds/standard/1815-2012.html) standard specifies which optional property.
@@ -35,6 +35,7 @@ New Context | TBD
 ## Properties
 | Property Name                 | Type                             | Description                                                                                                                                                                                                  |
 | -------------                 | ----                             | -----------                                                                                                                                                                                                  |
+| **sep_version** (required)  | `integer`   | [The version of the SEP](#sep-version)                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **func_code** (required)      | `integer`                        | The function code from the Application Layer.                                                                                                                                                                |
 | **objects** (optional)        | `list` of type `dnp3object-type` | This defines the included objects in the Application Layer.                                                                                                                                                  |
 | **iin** (optional)            | `integer`                        | The value of the IIN field.  They are also broken out in additional properties.  As IIN is only present on a response, the func_code MUST be greater than or equal to 129 when this field is present.        |
