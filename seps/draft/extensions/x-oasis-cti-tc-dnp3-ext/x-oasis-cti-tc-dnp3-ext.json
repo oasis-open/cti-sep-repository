@@ -96,11 +96,11 @@
       "properties": {
         "group": {
           "type": "integer",
-          "description": "The function code from the Application Layer."
+          "description": "The object group from the Object Type Field."
         },
         "variant": {
           "type": "integer",
-          "description": "The defines the included objects in the Application Layer."
+          "description": "The object variation from the Object Type Field."
         },
         "bitstr_hex": {
           "$ref": "../../../../cti-stix2-json-schemas/schemas/common/hex.json",

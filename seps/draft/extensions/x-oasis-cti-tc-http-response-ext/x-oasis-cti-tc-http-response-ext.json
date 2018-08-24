@@ -27,7 +27,7 @@
         },
         "response_header": {
           "type": "object",
-          "description": "",
+          "description": "Specifies all of the HTTP header fields that may be found in the HTTP server response.",
           "patternProperties": {
             "^[A-Z][a-zA-Z0-9_-]+$": {
               "oneOf": [
