@@ -1,1 +1,0 @@
-../../cti-stix2-json-schemas/pattern_grammar/STIXPattern.g4
