@@ -16,9 +16,6 @@ This SEP is the silver bullet for solving all the world's problems.
 ## SEP Extension Context
 * Are there SEP Extensions typically used in context with this SEP SCO?
 
-## SEP Slack Channel
-#silver-bullet-dev
-
 ## SEP Sponsors
 Org | Primary Contact
 --- | ---------------

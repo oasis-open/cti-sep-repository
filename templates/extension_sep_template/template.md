@@ -18,9 +18,6 @@ packaged neatly as a STIX Extension.
 * SDO or SCO?
 * all or a constrained set?
 
-## SEP Slack Channel
-#silver-bullet-dev
-
 ## SEP Sponsors
 Org | Primary Contact
 --- | ---------------
