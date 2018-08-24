@@ -15,6 +15,10 @@
           "description": "The type of this object, which MUST be the literal `x-oasis-cti-tc-silver-bullet`.",
           "enum": ["x-oasis-cti-tc-silver-bullet"]
         },
+        "sep_version": {
+          "type": "integer",
+          "description": "The version of this SEP."
+        },
         "id": {
           "title": "id",
           "pattern": "^x-oasis-cti-tc-silver-bullet--"
@@ -39,6 +43,7 @@
     }
   ],
   "required": [
-    "world_problem_solved"
+      "world_problem_solved",
+      "sep_version"
   ]
 }
