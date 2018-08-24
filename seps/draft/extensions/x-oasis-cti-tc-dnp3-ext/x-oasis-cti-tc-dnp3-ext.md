@@ -14,9 +14,6 @@ Allows for characterizing SCADA protocol [DNP3](https://en.wikipedia.org/wiki/DN
 ## SEP Extension Context
 This is an extension to the `network-traffic` SCO object.
 
-## SEP Slack Channel
-TBD
-
 ## SEP Definition
 Zero or one optional value **MUST** be provided. Which optional property of the dnp3object-type is included is dependent upon the values of the properties, group and variant. The [IEEE-1815](https://standards.ieee.org/findstds/standard/1815-2012.html) standard specifies which optional property.
 

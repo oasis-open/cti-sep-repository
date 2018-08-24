@@ -23,9 +23,6 @@ useful information, such as:
 ## SEP Extension Context
 * Often used in conjunction with the [`x-oasis-cti-tc-http-response-ext`](../../extensions/x-oasis-cti-tc-http-response-ext/) Extension.
 
-## SEP Slack Channel
-#webpage-dev
-
 ## SEP Sponsors
 Org | Primary Contact
 --- | ---------------
@@ -35,9 +32,8 @@ New Context | Trey Darley
 ## POC Implementations
 Org | GitHub Repository
 --- | -----------------
-Mitre | https://github.com/...
-New Context | https://github.com/...
-
+Cosive | TBD
+New Context | TBD
 
 ## SEP Definition
 The Webpage SCO represents an instance of a webpage, corresponding to

@@ -16,9 +16,6 @@ returned.
 * Extends the Network Traffic SCO. Mainly intended to be used in
   conjunction with the [`x-oasis-cti-tc-webpage`](../../scos/x-oasis-cti-tc-webpage) SCO.
 
-## SEP Slack Channel
-#http-response-extension-dev
-
 ## SEP Sponsors
 Org | Primary Contact
 --- | ---------------
@@ -28,8 +25,8 @@ New Context | Trey Darley
 ## POC Implementations
 Org | GitHub Repository
 --- | -----------------
-Cosive | https://github.com/...
-New Context | https://github.com/...
+Cosive | TBD
+New Context | TBD
 
 ## SEP Definition
 

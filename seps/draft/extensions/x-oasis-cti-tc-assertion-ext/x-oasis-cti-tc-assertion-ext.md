@@ -23,9 +23,6 @@ may be communicated using the Opinion SDO.)
 ## SEP Extension Context
 * Extends the Indicator and Observed Data SDOs.
 
-## SEP Slack Channel
-#assertion-extension-dev
-
 ## SEP Sponsors
 Org | Primary Contact
 --- | ---------------
@@ -35,8 +32,8 @@ New Context | Trey Darley
 ## POC Implementations
 Org | GitHub Repository
 --- | -----------------
-IBM | https://github.com/...
-New Context | https://github.com/...
+IBM | TBD
+New Context | TBD
 
 ## SEP Definition
 
@@ -48,7 +45,7 @@ New Context | https://github.com/...
 | **source** (optional)       | `string`    | The source of this assertion.                                                                                                                                                                                                                                                                                                                                                                                                           |
 | **threat_level** (optional) | `integer`   | The `threat_level` property identifies the threat level that the creator is asserting with respect to this data. It should be noted that this value **SHOULD NOT** assume anything about the recipient of the assertion; that is, the value should be receiver-agnostic and not take into account any specifics with regard to environment, industry, etc.<br /><br />If present, the value **MUST** be a number in the range of 0-100. |
 | **description** (optional)  | `string`    | A description that provides the recipient with a human-readable description of this threat level.                                                                                                                                                                                                                                                                                                                                       |
-| **categories** (reserved)   | `n/a`       | This property is reserved.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **categories** (reserved)   | `n/a`       | This property is reserved.                                                                                                                                                                                                                                                                                                                                             
 
 ### Examples
 ```json
