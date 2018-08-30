@@ -30,8 +30,6 @@ Org | GitHub Repository
 --- | -----------------
 New Context | TBD
 
-## SEP Definition
-
 ## Properties
 | Property Name                 | Type                             | Description                                                                                                                                                                                                  |
 | -------------                 | ----                             | -----------                                                                                                                                                                                                  |
