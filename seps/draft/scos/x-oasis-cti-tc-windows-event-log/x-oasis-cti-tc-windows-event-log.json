@@ -47,10 +47,10 @@
             "pattern": "^Information|Warning|Error|Critical|Success Audit|Failure Audit",
             "description": "A classification of the event severity."
           },
-          "sid": {
+          "security_identifier": {
             "type": "string",
             "pattern": "(^S(-[0-9]+){7}$)",
-            "description": "Microsoft SID (Security Identifier) A data structure of variable length that identifies user, group, and computer accounts. Every account on a network is issued a unique SID when the account is first created. Internal processes in Windows refer to an account's SID rather than the account's user or group name."
+            "description": "Microsoft security_identifier (Security Identifier) A data structure of variable length that identifies user, group, and computer accounts. Every account on a network is issued a unique security_identifier when the account is first created. Internal processes in Windows refer to an account's security_identifier rather than the account's user or group name."
           },
           "user": {
             "type": "string",
