@@ -1,0 +1,16 @@
+{
+  "id": "x-oasis-cti-tc-super-duper-vocab.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "super-duper-vocab",
+  "description": "These updates to the existing `foo-vocab` will surely be useful.",
+  "type": "object",
+  "definitions": {
+    "super-duper-ov": {
+      "type": "string",
+      "allOf": [
+        {"$ref": "../foo.json#/definitions/foo-vocab"},
+        {"enum": ["foobar"]}
+      ]
+    }
+  }
+}

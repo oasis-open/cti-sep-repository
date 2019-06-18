@@ -21,6 +21,8 @@ Currently, the CTI TC have agreed to limit the scope of SEPs to contributions wh
   * New SROs
   * New SCOs
   * New STIX Object Extensions
+  * New Marking Definition Objects
+  * Additions to existing Open Vocabularies
   
 The following types of SEPs are presently out of scope:
   * Redefining the semantics of properties of existing SDOs, SROs, and/or SCOs already defined in CTI TC Committee Specification Drafts and/or Committee Specifications.
@@ -44,6 +46,8 @@ If you receive an SDO or SCO with its `type` property prefixed with `x-oasis-cti
 * [Process for defining new STIX SDOs as SEPs](#seps-for-new-sdos)
 * [Process for defining new STIX Cyber Observables (SCOs) as SEPs](#seps-for-new-scos)
 * [Process for defining new STIX Extensions as SEPs](#seps-for-new-stix-extensions-sdo-or-sco)
+* [Process for defining new Marking Definition Objects as SEPs](#seps-for-new-marking-definitions)
+* [Process for defining updates to existing Open Vocabularies as SEPs](#seps-for-open-vocabs)
 
 ### A note for non-CTI TC members
 The majority of the CTI TC's work is conducted via a Slack instance and mailing lists which are only available to CTI TC members. In lieu of this, you can email the [SEP Open Repository maintainers](#current-maintainers-of-this-tc-open-repository) or by emailing the [cti-users mailing list](http://lists.oasis-open.org/archives/cti-users/). (Subscribe by sending an blank email to [cti-users-subscribe@lists.oasis-open.org](mailto:cti-users-subscribe@lists.oasis-open.org).)
@@ -85,6 +89,25 @@ If you look under [`seps/draft/scos/x-oasis-cti-tc-webpage/`](seps/draft/scos/x-
 * If you look under [`seps/draft/extensions/x-oasis-cti-tc-http-response-ext/`](seps/draft/extensions/x-oasis-cti-tc-http-response-ext/) you'll see the HTTP Response (SCO) Extension (based on [Terry MacDonald's proposal to the TC mailing list](https://lists.oasis-open.org/archives/cti-stix/201712/msg00003.html)) defined as a SEP. There's Markdown (for the humans) and there will be JSON Schema (for the machines) just as soon as I get a few minutes.
 
 * If you look under [`seps/draft/extensions/x-oasis-cti-tc-assertion-ext/`](seps/draft/extensions/x-oasis-cti-tc-assertion-ext/) you'll see the STIX Assertion Proposal reimagined as an SDO Extension (based on [Jason Kierstead's proposal in STIX 2.1-Working Concepts](https://docs.google.com/document/d/15qD9KBQcVcY4FlG9n_VGhqacaeiLlNcQ7zVEjc8I3b4/edit#heading=h.qxvz3vox3ksj)) and defined as a SEP. There's Markdown (for the humans) and there will be JSON Schema (for the machines) just as soon as I get a few minutes.
+
+### SEPs for new Marking Definitions
+1. Fork this repository.
+2. Give your SEP a name and create a corresponding directory within [`seps/draft/sdos/`](seps/draft/sdos/).
+3. Copy [`templates/marking_sep_template/template.md`](templates/marking_sep_template/template.md) and [`templates/marking_sep_template/template.json`](templates/marking_sep_template/template.json) into the directory you just created (s/template/your SEP name).
+4. Start by filling out as much as you can of \<your SEP name\>.md.
+5. Define your SEP's data model in JSON Schema in \<your SEP name\>.json.
+6. Do a pull request against this git repo.
+7. ...profit!
+
+### SEPs for Open Vocabs
+1. Fork this repository.
+2. Give your SEP a name and create a corresponding directory within [`seps/draft/sdos/`](seps/draft/sdos/).
+3. Copy [`templates/vocab_sep_template/template.md`](templates/vocab_sep_template/template.md) and [`templates/vocab_sep_template/template.json`](templates/sdo_sep_template/template.json) into the directory you just created (s/template/your SEP name).
+4. Start by filling out as much as you can of \<your SEP name\>.md.
+5. Define your SEP's additional vocabulary values in JSON Schema in \<your SEP name\>.json.
+6. Do a pull request against this git repo.
+7. ...profit!
+
 
 ## Governance
 This GitHub public repository (**[https://github.com/oasis-open/cti-sep-repository](https://github.com/oasis-open/cti-sep-repository)**) was created at the request of the [OASIS Cyber Threat Intelligence (CTI) TC](https://www.oasis-open.org/committees/cti/) as an [OASIS TC Open Repository](https://www.oasis-open.org/resources/open-repositories/) to support development of open source resources related to Technical Committee work.

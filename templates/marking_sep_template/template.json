@@ -1,0 +1,25 @@
+{
+    "id": "x-oasis-cti-tc-uber-marking.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "uber-marking",
+    "description": "A really good marking definition.",
+    "type": "object",
+    "allOf": [
+	{
+		"properties": 
+		{
+			"sep_version": {
+				"type": "integer",
+				"description": "The version of this SEP."
+			},
+			"foo": {
+				"type": "string",
+				"description": "The foo property for the uber marking definition"
+			}
+		}
+	}
+    ],
+    "required": [
+	"sep_version"
+    ]
+}
