@@ -102,7 +102,7 @@ If you look under [`seps/draft/scos/x-oasis-cti-tc-webpage/`](seps/draft/scos/x-
 ### SEPs for Open Vocabs
 1. Fork this repository.
 2. Give your SEP a name and create a corresponding directory within [`seps/draft/sdos/`](seps/draft/sdos/).
-3. Copy [`templates/vocab_sep_template/template.md`](templates/vocab_sep_template/template.md) and [`templates/vocab_sep_template/template.json`](templates/sdo_sep_template/template.json) into the directory you just created (s/template/your SEP name).
+3. Copy [`templates/vocab_sep_template/template.md`](templates/vocab_sep_template/template.md) and [`templates/vocab_sep_template/template.json`](templates/vocab_sep_template/template.json) into the directory you just created (s/template/your SEP name).
 4. Start by filling out as much as you can of \<your SEP name\>.md.
 5. Define your SEP's additional vocabulary values in JSON Schema in \<your SEP name\>.json.
 6. Do a pull request against this git repo.
