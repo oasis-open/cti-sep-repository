@@ -111,7 +111,7 @@ Initially, the associated TC members have designated one or more persons to serv
 ### Current Maintainers of this TC Open Repository
 | name          | email                                             | GitHub user                          | member company                             |
 |---------------|---------------------------------------------------|--------------------------------------|--------------------------------------------|
-| Trey Darley   | [trey@newcontext.com](mailto:trey@newcontext.com) | [treyka](https://github.com/treyka/) | [New Context](https://www.newcontext.com/) |
+| Trey Darley   | [trey.darley@cert.be](mailto:trey.darley@cert.be) | [certbe-trey](https://github.com/certbe-trey/) | [CERT.be](https://cert.be/) |
 | Ivan Kirillov | [ikirillov@mitre.org](mailto:ikirillov@mitre.org) | [ikiril01](https://github.com/ikiril01/)                             | [MITRE](https://www.mitre.org/)                                      |
 
 ## About OASIS TC Open Repositories
