@@ -1,0 +1,186 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "isa-acs-3-0",
+    "description": "This marking extension was created to apply the SD-EDH Cyber Profile to ISA shared documents. This is one of two extensions used to apply the SD-EDH Cyber profile: the ISA Markings Extension and the ISA Markings Assertions Extension.",
+    "type": "object",
+    "allOf": [{
+        "$comment": "'$ref': '../common/marking-definition.json'",
+        "properties": {
+            "definition_type": {
+                "type": "string",
+                "description": "The definition_type property identifies the type of Marking Definition.",
+                "enum": ["x-isa-acs-3-0"]
+            },
+            "definition": {
+                "$ref": "#/definitions/isa-acs-3-0",
+                "description": "The definition property contains the marking object itself."
+            }
+        }
+    }],
+    "definitions": {
+        "isa-acs-3-0": {
+            "type": "object",
+            "description": "The isa-acs-3-0 from ACS",
+            "properties": {
+                "sep_version": {
+                    "type": "integer"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Single unique identifier associated with the resource."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Some name for the data marking for user convenience."
+                },
+                "create_date_time": {
+                    "$comment": "$ref: ../common/timestamp.json",
+                    "type": "string",
+                    "description": "The date of the ACS creation."
+                },
+                "responsible_entity_custodian": {
+                    "type": "string",
+                    "description": "custodian",
+                    "$comment": "enum is Appendix A of ACS 3.0 specification"
+                },
+                "responsible_entity_originator": {
+                    "type": "string",
+                    "description": "originator",
+                    "$comment": "enum is Appendix A of ACS 3.0 specification"
+                },
+                "authority_reference": {
+                    "type": "string",
+                    "$comment": "pattern can be made more robust to represent a urn exactly",
+                    "pattern": "^(urn(:\\w+)+)"
+                },
+                "original_classification": {
+                    "$ref": "#/definitions/original_classification",
+                    "description": "Details for generating a classification authority block based on classification by an Original Classification Authority."
+                },
+                "derivative_classification": {
+                    "$ref": "#/definitions/derivative_classification",
+                    "description": "Details for generating a classification authority block based on a derived classification."
+                },
+                "declassification": {
+                    "$ref": "#/definitions/declassification",
+                    "description": "The declassification instructions associated with an original or derived classification for generating a classification authority block."
+                },
+                "public_release": {
+                    "$ref": "#/definitions/public_release",
+                    "description": "The release authority and date for resources that have been through a formal public release determination process."
+                },
+                "control_set": {
+                    "$ref": "#/definitions/control_set",
+                    "description": "Group of data tags that are used to inform automated access control decisions."
+                },
+                "other_determination": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "AIS",
+                            "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT",
+                            "PII-NECESSARY-TO-UNDERSTAND-THREAT",
+                            "PII-NOT-PRESENT",
+                            "PCII",
+                            "PII"
+                        ]
+                    }
+                },
+                "terms_of_use": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Holds Caveats and/or other textual statements of usage limits"
+                }
+            },
+            "required": [
+                "sep_version",  
+                "identifier",
+                "create_date_time",
+                "responsible_entity_custodian",
+                "public_release",
+                "control_set"
+            ]},
+        "control_set": {
+            "type": "object",
+            "properties": {
+                "capco_classification": {
+                    "type": "string",
+                    "$comment": "^(U?|C|S|TS)\/\/(((\\w|\\-)+(\/(\\w|\\-)+)*)\/\/)?((\\w|\\-)+|REL( TO (\\w|\\-)+( ,\\s?(\\w|\\-)+)*))?(\/(\\w|\\-)+|REL( TO (\\w|\\-)+(, (\\w|\\-)+)*)?)*$"
+                },
+                "logical_authority_category": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                },
+                "community_of_interest": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                },
+                "organization": {
+                     "type": "array",
+                     "items": {"type": "string"},
+                     "$comment": "values from appendix A"
+                }
+            },
+            "required": ["capco_classification"]
+        },
+        "derivative_classification": {
+            "type": "object",
+            "properties": {
+                "classified_by": {"type": "string"},
+                "classified_on": {
+                    "$comment": "$ref: ../common/timestamp.json",
+                    "type": "string",
+                    "description": "The date an original classification determination was made."
+                 },
+                 "derived_from": {"type": "string"}
+             },
+             "required": [
+                 "classified_by",
+                 "derived_from"
+             ]
+        },
+        "original_classification": {
+            "type": "object",
+            "properties": {
+                "classified_by": {"type": "string"},
+                "classified_on": {
+                      "$comment": "$ref: ../common/timestamp.json",
+                      "type": "string",
+                           "description": "The date an original classification determination was made."
+                },
+                "classification_reason": {"type": "string"},
+                "compilation_reason": {"type": "string"}
+             },
+             "required": ["classified_by"]
+         },
+         "declassification": {
+             "type": "object",
+             "properties": {
+                "declass_exemption": {"type": "string"},
+                "declass_period": {"type": "integer"},
+                "declass_date": {
+                    "$comment": "$ref: ../common/timestamp.json",
+                    "type": "string",
+                    "description": "A date upon which a resource will be automatically declassified if not exempt."
+                 },
+                 "declass_event": {"type": "string"}
+               }
+          },
+          "public_release": {
+            "type": "object",
+            "properties": {
+                "releasable_to_public": {"type": "boolean"},
+                "released_by": {"type": "string"},
+                "released_on": {
+                    "$comment": "$ref: ../common/timestamp.json",
+                    "type": "string",
+                    "description": "The date of public release."
+                }
+            },
+            "required": ["releasable_to_public"]
+          }
+       }
+   }
+
+
