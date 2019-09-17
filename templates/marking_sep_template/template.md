@@ -17,7 +17,7 @@ This SEP is a really good marking definition. It MUST use the SEP Identifier val
 Org | Primary Contact
 --- | ---------------
 Mitre | Ivan Kirillov
-New Context | Trey Darley
+CERT-BE | Trey Darley
 
 ## POC Implementations
 Org | GitHub Repository
