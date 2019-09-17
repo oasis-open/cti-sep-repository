@@ -99,15 +99,8 @@ If you look under [`seps/draft/scos/x-oasis-cti-tc-webpage/`](seps/draft/scos/x-
 6. Do a pull request against this git repo.
 7. ...profit!
 
-### SEPs for Open Vocabs
-1. Fork this repository.
-2. Give your SEP a name and create a corresponding directory within [`seps/draft/sdos/`](seps/draft/sdos/).
-3. Copy [`templates/vocab_sep_template/template.md`](templates/vocab_sep_template/template.md) and [`templates/vocab_sep_template/template.json`](templates/vocab_sep_template/template.json) into the directory you just created (s/template/your SEP name).
-4. Start by filling out as much as you can of \<your SEP name\>.md.
-5. Define your SEP's additional vocabulary values in JSON Schema in \<your SEP name\>.json.
-6. Do a pull request against this git repo.
-7. ...profit!
-
+#### An example
+If you look under [`seps/draft/extensions/x-acs-3-0/`](seps/draft/extensions/x-acs-3-0/) you'll see the DHS/MITRE ACS Markings proposal defined as a SEP. There's Markdown (for the humans) and JSON Schema (for the machines.)
 
 ## Governance
 This GitHub public repository (**[https://github.com/oasis-open/cti-sep-repository](https://github.com/oasis-open/cti-sep-repository)**) was created at the request of the [OASIS Cyber Threat Intelligence (CTI) TC](https://www.oasis-open.org/committees/cti/) as an [OASIS TC Open Repository](https://www.oasis-open.org/resources/open-repositories/) to support development of open source resources related to Technical Committee work.
