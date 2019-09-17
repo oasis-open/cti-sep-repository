@@ -24,11 +24,6 @@ Please refer to "Information Sharing Architecture (ISA) Access Control Specifica
 ## SEP Use Cases
 * When content is shared with the DHS NCCIC, it should use these markings.
 
-## SEP Extension Context
-* This extension will be used to mark all STIX content consumed and distributed by DHS NCCIC.
-* The markings specified in this SEP incorporate data markings related to the CAPCO classification scheme and can be useful
-outside the DHS NCCIC.
-
 ## SEP Sponsors
 Org | Primary Contact
 --- | ---------------
@@ -49,34 +44,18 @@ x-isa-acs-3-0 is the top-level type object of the ACS marking definition type.
 #### Properties
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
-| **sep_version** (required) | `integer` | This required property indicated the specification version of the serialization being used.  The value of this property MUST be 1 for ACS data marking objects defined according to this specification. |
-|                                                                          
-| **identifier** (required)  | `string`  | This required property holds a single unique identifier associated with the resource. This value can be used for tracking data provenance, executing data retraction, and enforcing auditing requirements. The Resource Identifier will use a format that includes a prefix and an RFC4122 suffix. The prefix used will include the ISA common prefix (GUIDE prefix). The ISA has been assigned a GUIDE7 (Globally Unique Identifier for Everything) prefix of 19001 for production and 999191 for test use. It is recommended that RFC 4122 Version 4 UUIDs be used for the suffix; however, other versions are permitted. |
-| 
-| **name** (optional)        |  `string` | This property provides a "handle" to identify and describe this marking definition.  Note that the name property in no way defines the data marking. It is simply provided as a convenience for users. |
-|                                                                           
-| **create_date_time** (required) | `timestamp` | This required property provides the creation date and time of the associated resource as identified by the Identifier. This value supports a number of functions including enforcing data retention policies and auditing requirements. |
-|
+| **sep_version** (required) | `integer` | This required property indicated the specification version of the serialization being used.  The value of this property MUST be 1 for ACS data marking objects defined according to this specification. |                | **identifier** (required)  | `string`  | This required property holds a single unique identifier associated with the resource. This value can be used for tracking data provenance, executing data retraction, and enforcing auditing requirements. The Resource Identifier will use a format that includes a prefix and an RFC4122 suffix. The prefix used will include the ISA common prefix (GUIDE prefix). The ISA has been assigned a GUIDE7 (Globally Unique Identifier for Everything) prefix of 19001 for production and 999191 for test use. It is recommended that RFC 4122 Version 4 UUIDs be used for the suffix; however, other versions are permitted. |
+| **name** (optional)        |  `string` | This property provides a "handle" to identify and describe this marking definition.  Note that the name property in no way defines the data marking. It is simply provided as a convenience for users. |                | **create_date_time** (required) | `timestamp` | This required property provides the creation date and time of the associated resource as identified by the Identifier. This value supports a number of functions including enforcing data retention policies and auditing requirements. |
 | **responsible_entity_custodian** (required) | `string` | This required property represents the data producer that is responsible for providing the associated resource to be shared. It is represented as an organization token. This value is necessary for auditing and enforcing data retention and provenance policies. Allowable values listed in Appendix A: List of Organizations of [ref] **MUST** be used. |
-|
 | **responsible_entity_originator** (optional) | `string` | This optional property represents the originating organization for the associated resource. If not present then the origin of the information is unspecified. It is represented as an organization token. The organizations in Appendix A **SHOULD** be used. However, additional tokens may be created to specify the originator. Certain Originators may require anonymity to protect their identity. This is common when dealing with a cybersecurity threat or incident where the originator is an entity in the Private Sector. Cover terms (e.g., USENERGY01) assigned to an entity should be carried through anytime the resource is shared. |
-|
 | **authority_reference** (optional) | `string` | This property captures the legal authority under which the content was created, not the limitation on sharing the content. This property is used for auditing and records management, not for access control decisions. In some cases, the Authority Reference is needed by ESSA Participants to be included in the Control Policy Group as well as the Resource Accounting Group.  It **MUST** be of the be of the format urn(:\w+)+. |
-|
 | **original_classification** (optional) | `x-isa-acs-original-classification-type` | This property provides details for generating a classification authority block for presentation of a classified resource to an operator. Either the Original Classification or the Derivative Classification is required for classified resources, as appropriate. Details regarding the basic encoding specification detail for Original Classification are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
-|
 | **derivative_classification** (optional) | `x-isa-acs-derivative-classification-type` | This property provides details for generating a classification authority block for presentation of a classified resource to an operator. Either the Original Classification or the Derivative Classification is required for classified resources, as appropriate. Details regarding the basic encoding specification detail for Original Classification are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
-|
 | **declassification** (optional) | `x-isa-acs-declassification-type` | This property provides the declassification instructions associated with an original or derived classification for generating a classification authority block for presentation of a classified resource to an operator. Details regarding the basic encoding specification detail for Declassification are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
-|
 | **public_release** (required) | `x-isa-acs-public-release-type` | This property will be used to provide the release authority and date for resources that have been through a formal public release determination process, or note that the resource has not been publicly released. Details regarding the basic encoding specification detail for Public Release are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
-|
 | **control_set** (required) | `x-isa-acs-control-set-type` | The Control Set property is the group of data tags that are used to inform automated access control decisions. |
-|
 | **other_determination** (optional) | `list` of type `x-isa-acs-other-determination-enum` | The property holds additional information about the access control. |
-|
 | **terms_of_use** (optional) | `list` of type `string` | This property holds caveats and/or other textual statements of usage limits. |
-
 
 ### x-isa-acs-original-classification-type
 
@@ -86,11 +65,8 @@ This type provides details for generating a classification authority block for p
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
 | **classified_by** (required) | `string` | This property contains the name of person with the original classification authority who made a classification determination |
-|
 | **classified_on** (optional)  | `timestring` | This property contains the date an original classification determination was made. |
-|
 | **classification_reason** (optional)  | `string` | This property contains the rationale for an original classification determination. |
-|
 | **compilation_reason** (optional)  | `string` | This property contains the rationale for assigning a higher classification level than a simple roll-up of its portions would indicate. |
 
 ### x-isa-acs-derivative-classification-type
@@ -100,11 +76,8 @@ This type provides details for generating a classification authority block for p
 #### Properties
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
-| 
 | **classified_by** (required)  | `string` | This property contains the name of person with the derivative classification authority who made a classification determination |
-|
 | **classified_on** (optional)  | `timestring` | This property contains the date an original classification determination was made. |
-|
 | **derived_from** (required) | `string` | This property contains the citation of the original classification guidance used for a derivative classification. |
 
 ### x-isa-acs-declassification-type
@@ -114,13 +87,9 @@ This type provides the declassification instructions associated with an original
 #### Properties
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
-|
 | **declass_exemption** (optional)  | `string` | This property contains the basis for a resource not being subject to standard automatic declassification processes. |
-|
 | **declass_period** (optional)  | `integer` | This property contains the duration of time in years for calculating from a create date or classification date when a resource will be automatically declassified if not exempt. |
-|
 | **declass_date**  (optional)  | `timestamp` | This property contains the date upon which a resource will be automatically declassified if not exempt.|
-|
 | **declass_event**  (optional)  | `string` | This property contains the future occurrence upon which a resource will be automatically declassified if not exempt.|
 
 ### x-isa-acs-public-release-type
@@ -130,11 +99,8 @@ This typr will be used to provide the release authority and date for resources t
 #### Properties
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
-|
 | **releasable_to_public**  (required) | `boolean` | This property indicates if this resource can be publicly released. Note, for certain values of the capco_classification property in x-isa-acs-control-set-type the value of this property MUST be false.|
-|
 | **released_by** (optional) | `string` | This property contains the authority that authorized the public release.|
-|
 | **released_on**  (optional)  | `timestamp` | This property contains the date of public release |
 
 ### x-isa-acs-control-set-type
@@ -142,13 +108,9 @@ This typr will be used to provide the release authority and date for resources t
 #### Properties
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
-|
 | **capco_classification** (required) | `string` | This property contains information specifying the classification level, SCI controls and dissemination markings as a string adhering to "Intelligence Community Authorized Classification and Control Markings, Register and Manual (Version 5.1)" [ref] |
-|
 | **logical_authority_category** (optional) | `list` of type `string` | This property represents classes of authority upon which data can be generated or acquired and that can be used to apply mandatory special access control and handling policies. |
-|
 | **community_of_interest** (optional) | `list` of type `string` | This property identifies the limitation on the distribution of the resource based on membership in a closed, secure community of interest (COI). COI membership is managed by the owners of the COI, possibly as a list of authorized users and/or servers.|
-|
 | **organization** (optional) | `list` of type `string` | This property identifies the limitation on the distribution of the resource based on organization. Allowable values listed in Appendix A: List of Organizations of [ref] **MUST** be used. |
 
 ## Enumerations
@@ -156,9 +118,8 @@ This typr will be used to provide the release authority and date for resources t
 ### x-isa-acs-other-determination-enum
 
 
-| Vocabulary Value      | Description                                                                                                                             |
+| Vocabulary Value      | Description        |
 | -------------------   | -----------        |
-|
 |  AIS| The resource is appropriate for AIS. |
 | INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT |  |
 | PII-NECESSARY-TO-UNDERSTAND-THREAT | Personally identifiable information (PII) necessary to understand the context of the resource is present. |
