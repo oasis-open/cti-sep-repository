@@ -6,6 +6,10 @@
     "allOf": [{
         "$comment": "'$ref': '../common/marking-definition.json'",
         "properties": {
+			"sep_version": {
+				"type": "integer",
+				"description": "The version of this SEP."
+			},
             "definition_type": {
                 "type": "string",
                 "description": "The definition_type property identifies the type of Marking Definition.",
@@ -180,7 +184,10 @@
             },
             "required": ["releasable_to_public"]
           }
-       }
+       },
+    "required": [
+        "sep_version"
+    ]
    }
 
 
