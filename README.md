@@ -21,6 +21,7 @@ Currently, the CTI TC have agreed to limit the scope of SEPs to contributions wh
   * New SROs
   * New SCOs
   * New STIX Object Extensions
+  * Additions to existing Open Vocabularies
   
 The following types of SEPs are presently out of scope:
   * Redefining the semantics of properties of existing SDOs, SROs, and/or SCOs already defined in CTI TC Committee Specification Drafts and/or Committee Specifications.
@@ -85,6 +86,24 @@ If you look under [`seps/draft/scos/x-oasis-cti-tc-webpage/`](seps/draft/scos/x-
 * If you look under [`seps/draft/extensions/x-oasis-cti-tc-http-response-ext/`](seps/draft/extensions/x-oasis-cti-tc-http-response-ext/) you'll see the HTTP Response (SCO) Extension (based on [Terry MacDonald's proposal to the TC mailing list](https://lists.oasis-open.org/archives/cti-stix/201712/msg00003.html)) defined as a SEP. There's Markdown (for the humans) and there will be JSON Schema (for the machines) just as soon as I get a few minutes.
 
 * If you look under [`seps/draft/extensions/x-oasis-cti-tc-assertion-ext/`](seps/draft/extensions/x-oasis-cti-tc-assertion-ext/) you'll see the STIX Assertion Proposal reimagined as an SDO Extension (based on [Jason Kierstead's proposal in STIX 2.1-Working Concepts](https://docs.google.com/document/d/15qD9KBQcVcY4FlG9n_VGhqacaeiLlNcQ7zVEjc8I3b4/edit#heading=h.qxvz3vox3ksj)) and defined as a SEP. There's Markdown (for the humans) and there will be JSON Schema (for the machines) just as soon as I get a few minutes.
+
+### Additions to Existing Open Vocabularies
+Unlike other SEPs, additions to existing open vocabularies are consolidated in a single file: [`seps/draft/open_vocabs.md`](seps/draft/open_vocabs.md). This ensures that users don't need to wade through a myriad of separate SEP proposals to find a particular entry added by an organization; in addition, it facilitates the submission of new entries by organizations.
+
+Therefore, to add a new entry simply:
+1. Fork this repository.
+2. Add your new open vocabulary entries into [`seps/draft/open_vocabs.md`](seps/draft/open_vocabs.md). Be sure to fill out the necessary information (Value/Description/Organization) for each entry.
+3. Do a pull request against this git repo.
+4. ...profit!
+
+#### An example
+As a simple example, let's assume ACME org wants to add a few values to the `industry-sector-ov`. This would simply be a matter of populating the corresponding table in [`seps/draft/open_vocabs.md`](seps/draft/open_vocabs.md):
+
+##### industry-sector-ov
+|Vocabulary Value|Description|Contributing Organization|
+|----------------|-----------|-------------------------|
+|foo|The foo sector|ACME|
+|bar|The bar sector|ACME|
 
 ## Governance
 This GitHub public repository (**[https://github.com/oasis-open/cti-sep-repository](https://github.com/oasis-open/cti-sep-repository)**) was created at the request of the [OASIS Cyber Threat Intelligence (CTI) TC](https://www.oasis-open.org/committees/cti/) as an [OASIS TC Open Repository](https://www.oasis-open.org/resources/open-repositories/) to support development of open source resources related to Technical Committee work.
