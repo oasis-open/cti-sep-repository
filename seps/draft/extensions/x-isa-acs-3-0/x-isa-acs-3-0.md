@@ -116,10 +116,35 @@ This typr will be used to provide the release authority and date for resources t
 #### Properties
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
-| **capco_classification** (required) | `string` | This property contains information specifying the classification level, SCI controls and dissemination markings as a string adhering to "Intelligence Community Authorized Classification and Control Markings, Register and Manual (Version 5.1)" [ref] |
-| **logical_authority_category** (optional) | `list` of type `string` | This property represents classes of authority upon which data can be generated or acquired and that can be used to apply mandatory special access control and handling policies. |
-| **community_of_interest** (optional) | `list` of type `string` | This property identifies the limitation on the distribution of the resource based on membership in a closed, secure community of interest (COI). COI membership is managed by the owners of the COI, possibly as a list of authorized users and/or servers.|
-| **organization** (optional) | `list` of type `string` | This property identifies the limitation on the distribution of the resource based on organization. Allowable values listed in Appendix A: List of Organizations of [ref] **MUST** be used. |
+| **classification** (required) | `string` | This property contains information specifying the classification level.
+
+The Classification token contains the classification of the data based on the Executive Order 13526, Classified National Security Information (Reference 23) and the Information Security Manual (ISM) (Reference 17) marking system. Unclassified information will include a classification marking.
+
+The value of this property MUST be one of the following:  U, C, S, TS. |
+| **entitlements** (optional) | `list` of type `string` | This property contains of list of entitlements.  An entitlement can be one of the following:  SCI (sensitive compartmented information),  LAC (logical authority category), COI (community of interest), CUI (controlled unclassified information), FD (formal determination) or CVT (caveat).
+
+Each value consists of one of the above entitlements’ acronym, followed by a colon (:), and then by an appropriate value for that entitlement.
+
+The appropriate values for LAC represent classes of authority upon which data can be generated or acquired and that can be used to apply mandatory special access control and handling policies.
+
+The appropriate values for COI identifies the limitation on the distribution of the resource based on membership in a closed, secure community of interest (COI). COI membership is managed by the owners of the COI, possibly as a list of authorized users and/or servers. 
+
+The appropriate values for CUI can be found in the Controlled Unclassified Information List 
+
+The appropriate values for FD are PUBREL, NF, AIS, PII-NECESSARY-TO-UNDERSTAND-THREAT, PII-NOT-PRESENT, FOUO
+
+The appropriate values for CVT are FISA and POSSIBLEPII
+
+Examples:
+
+"SCI:SI",
+"LAC:LAC12345", "COI:NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"
+|
+| **permitted_nationalities** (optional) | `list` of type `string` |This property identifies the limition on the distribution of the resource based on nationality.
+
+Allowable values are listed in Geopolitical Entities, Names, and Codes (GENC) Standard Edition (https://api.nsgreg.nga.mil/geo-political/ISO3166-1/3/VI-12)
+|
+| **permitted_organization** (optional) | `list` of type `string` | This property identifies the limitation on the distribution of the resource based on organization. Allowable values listed in Appendix A: List of Organizations of [ref] **MUST** be used. |
 
 ## Enumerations
 

@@ -1,0 +1,29 @@
+{
+	"type": "marking-definition",
+	"id": "marking-definition--39b8b016-e350-473b-8c93-610be0dabdef",
+	"created": "2016-08-01T00:00:00.000Z",
+    "definition_type": "x-isa-acs-3-0", 
+    "definition": {
+          "sep_version": 1,
+          "identifier": "isa:guide.19001.ACS3-bc9034f8-c732-5328-b9df-d9d72aae4ccc",
+          "name": "some_unclassified_marking",
+          "create_date_time": "2016-06-27T14:10:26.723Z",
+          "responsible_entity_custodian": "USA.NSA",
+          "responsible_entity_originator": "USA.NSA",
+          "authority_reference": "urn:isa:authority:CFR2013_32_2_236", 
+          "public_release": {
+               "releasable_to_public": true,
+               "released_by": "DHS Public Relations Office",
+               "released_on": "2018-07-20T00:00:00Z"
+           },
+           "control_set": {
+                "classification": "U",
+                "entitlements": [
+                    "CUI:FOUO"
+                ],
+                "permitted_organizations": ["USA.NSA", "USA.DHS"],
+            },
+            "other_determination": ["AIS", "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT"],
+            "terms_of_use": ["May be used for network defense for CISA uses. Anonymous access is not allowed. May be further shared with…."]
+    }
+}

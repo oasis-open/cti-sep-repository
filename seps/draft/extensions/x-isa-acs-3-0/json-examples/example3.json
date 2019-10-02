@@ -1,0 +1,37 @@
+{
+	  "type": "marking-definition",
+	  "id": "marking-definition--f7a232db-afd4-4ede-b58e-d9131c75fea2",
+	  "created": "2016-08-01T00:00:00.000Z",
+      "definition_type": "x-isa-acs-3-0", 
+      "definition": {
+          "sep_version": 1,
+          "identifier": "isa:guide.19001.ACS3-bc9034f8-c732-5328-b9df-d9d72aaeaaaa",
+          "name": "some_secret_marking",
+          "create_date_time": "2016-06-27T14:10:26.723Z",
+          "responsible_entity_custodian": "USA.NSA",
+          "responsible_entity_originator": "USA.NSA",
+          "authority_reference": "urn:isa:authority:CFR2013_32_2_236",
+          "derivative_classification": {
+               "classified_by": "Available-On-Request",
+               "derived_from": "Orig-Doc"
+           },
+           "declassification": {
+               "declass_date": "2020-02-20T00:00:00Z"
+           },
+           "public_release": {
+               "releasable_to_public": false
+           },
+           "control_set": {
+                "classification": "TS",
+                "entitlements": [
+                    "SCI:SI",
+                    "LAC:LAC12345",
+                    "COI:NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"
+                ],
+                "permitted_nationalities" : ["USA", "AUS", "CAN", "GBR", "NZL"],
+                "permitted_organizations": ["USA.NSA", "USA.DHS"]
+            },
+            "other_determination": ["AIS", "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT"], 
+            "terms_of_use": ["May be used for network defense for CISA uses. Anonymous access is not allowed. May be further shared with…."]
+    }
+}
