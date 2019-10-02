@@ -1,0 +1,21 @@
+{
+    "type": "x-hypothesis",
+    "id": "x-hypothesis--5b376a5b-2d75-443d-8e02-89673dc8b158",
+    "created": "2018-10-23T01:00:27.334Z",
+    "modified": "2018-10-23T01:00:27.334Z",
+    "name": "Hyopthesis: APT1 actors responsible for Oceansalt and have changed tactics",
+    "description": " Given the large attention on South Korean targets in the recent Oceansalt campaigns, it is possible that what we are seeing is a result of this Korean EAI expansion being at odds with China’s BRI. This would support the possibility that this is a reemergence of APT1 actors supporting a different agenda and tactics.",
+	"author": "EclecticIQ Fusion Center",
+    "evidence": [
+        {
+            "credibility": "Medium",
+            "description": "eemergence of APT1 actors with a different agenda",
+            "evidence_type": "Media",
+            "object_refs": [
+                "indicator--8b313f31-44fa-4041-99d4-c89303630dc5"
+            ],
+            "relevance": "High",
+            "source_ref": "identity--d52c8431-1ea6-42ee-a94e-509402437b83"
+        }
+    ]
+}
