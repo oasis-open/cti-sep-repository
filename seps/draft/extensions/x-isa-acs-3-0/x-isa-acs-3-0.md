@@ -84,7 +84,6 @@ This type provides details for generating a classification authority block for p
 #### Properties
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
-
 | **classified_by** (required)  | `string` | This property contains the name of person with the derivative classification authority who made a classification determination |
 | **classified_on** (optional)  | `timestring` | This property contains the date an original classification determination was made. |
 | **derived_from** (required) | `string` | This property contains the citation of the original classification guidance used for a derivative classification. |
