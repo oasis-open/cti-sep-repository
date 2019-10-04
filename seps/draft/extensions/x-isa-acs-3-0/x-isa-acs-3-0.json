@@ -104,19 +104,22 @@
         "control_set": {
             "type": "object",
             "properties": {
-                "capco_classification": {
+                "classification": {
                     "type": "string",
-                    "$comment": "^(U?|C|S|TS)\/\/(((\\w|\\-)+(\/(\\w|\\-)+)*)\/\/)?((\\w|\\-)+|REL( TO (\\w|\\-)+( ,\\s?(\\w|\\-)+)*))?(\/(\\w|\\-)+|REL( TO (\\w|\\-)+(, (\\w|\\-)+)*)?)*$"
+                    "enum": [ "U", "C", "S", "TS"]
                 },
-                "logical_authority_category": {
+                "enititlements": {
                     "type": "array",
-                    "items": {"type": "string"}
+                    "items": {"type": "string"},
+                    "pattern": "^(SCI|LAC|COI|CUI|FD|CVT):\\w+$",
+                    "$comment": "see ACS specification"
                 },
-                "community_of_interest": {
+                "permitted_nationalities": {
                     "type": "array",
-                    "items": {"type": "string"}
+                    "items": {"type": "string"},
+                    "$comment": "values from Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1"
                 },
-                "organization": {
+                "permitted_organization": {
                      "type": "array",
                      "items": {"type": "string"},
                      "$comment": "values from appendix A"
