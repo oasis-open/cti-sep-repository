@@ -23,15 +23,12 @@
            },
            "control_set": {
                 "classification": "TS",
-                "entitlements": [
-                    "SCI:SI",
-                    "LAC:LAC12345",
-                    "COI:NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"
-                ],
+                "sci_controls": ["SI"],
+            	"logical_authority_category": ["LAC12345"],
+            	"formal_determination": ["AIS"],
+            	"sensitivity": ["NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"],
                 "permitted_nationalities" : ["USA", "AUS", "CAN", "GBR", "NZL"],
                 "permitted_organizations": ["USA.NSA", "USA.DHS"]
-            },
-            "other_determination": ["AIS", "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT"], 
-            "terms_of_use": ["May be used for network defense for CISA uses. Anonymous access is not allowed. May be further shared with…."]
+            }
     }
 }

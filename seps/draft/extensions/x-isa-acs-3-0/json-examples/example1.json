@@ -10,7 +10,8 @@
         "create_date_time": "2016-06-27T14:10:26.723Z",
         "responsible_entity_custodian": "USA.NSA",
         "responsible_entity_originator": "USA.NSA",
-        "authority_reference": "urn:isa:authority:CFR2013_32_2_236", 
+        "authority_reference": "urn:isa:authority:CFR2013_32_2_236",
+        "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=permit&amp;sharedefault=permit",
         "original_classification": {
             "classified_by": "Available-On-Request",
             "classified_on": "2017-01-10T00:00:00Z",
@@ -30,19 +31,26 @@
         "public_release": {
             "releasable_to_public": true,
             "released_by": "DHS Public Relations Office",
-            "released_on": "2018-07-20T00:00:00Z"
+            "released_on": "2018-07-20T00:00:00Z",
         },
+        "access_privilege": [
+            {
+                "privilege_action": "CISAUSES",
+                "rule_effect": "permit"
+            },
+            {
+                "privilege_action": "ANONYMOUSACCESS",
+                "rule_effect": "deny"
+            }
+        ],
         "control_set": {
             "classification": "TS",
-            "entitlements": [
-                "SCI:SI",
-                "LAC:LAC12345",
-                "COI:NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"
-            ],
-            "permitted_nationalities" : ["USA", "AUS", "CAN", "GBR", "NZL"],
+            "sci_controls": ["SI"],
+            "logical_authority_category": ["LAC12345"],
+            "formal_determination": ["AIS"],
+            "sensitivity": ["NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"],
+            "permitted_nationalities": ["USA", "AUS", "CAN", "GBR", "NZL"],
             "permitted_organizations": ["USA.NSA", "USA.DHS"]
-        },
-        "other_determination": ["AIS"], 
-        "terms_of_use": ["May be used for network defense for CISA uses. Anonymous access is not allowed. May be further shared with…."]
+        }
     }
 }

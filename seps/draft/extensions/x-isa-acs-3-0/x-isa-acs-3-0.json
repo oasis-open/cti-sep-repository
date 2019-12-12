@@ -51,8 +51,12 @@
                 "authority_reference": {
                     "type": "string",
                     "$comment": "pattern can be made more robust to represent a urn exactly",
-                    "pattern": "^(urn(:\\w+)+)"
+                    "pattern": "^(urn:isa:authority:\\w+)$"
                 },
+                "policy_reference": {
+                    "type": "string",
+                    "pattern": "^(urn:isa:policy:acs:ns:v3.0?privdefault=[permit|deny]&amp;sharedefault=[permit|deny]\\s?)+)$"
+                }
                 "original_classification": {
                     "$ref": "#/definitions/original_classification",
                     "description": "Details for generating a classification authority block based on classification by an Original Classification Authority."
@@ -65,42 +69,74 @@
                     "$ref": "#/definitions/declassification",
                     "description": "The declassification instructions associated with an original or derived classification for generating a classification authority block."
                 },
+                "resource_disposition": {
+                    "$ref": "#/definitions/resource_disposition",
+                    "description": "Provide a fixed date and time at which an action is to be taken on the associated resource, such as destruction."
+                }
                 "public_release": {
                     "$ref": "#/definitions/public_release",
                     "description": "The release authority and date for resources that have been through a formal public release determination process."
                 },
+                "access_privilege": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "$comment": "$ref - #/definitions/access_privilege"
+                    },
+                    "minItems": 1
+                    "$comment": "not required, but if used, there must be 1 item"
+                },
+                "further_sharing": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "$comment": "$ref - #/definitions/further_sharing"
+                    }
+                    "minItems": 1
+                    "$comment": "not required, but if used, there must be 1 item"
+                }
                 "control_set": {
                     "$ref": "#/definitions/control_set",
                     "description": "Group of data tags that are used to inform automated access control decisions."
                 },
-                "other_determination": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "enum": [
-                            "AIS",
-                            "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT",
-                            "PII-NECESSARY-TO-UNDERSTAND-THREAT",
-                            "PII-NOT-PRESENT",
-                            "PCII",
-                            "PII"
-                        ]
-                    }
-                },
-                "terms_of_use": {
-                    "type": "array",
-                    "items": {"type": "string"},
-                    "description": "Holds Caveats and/or other textual statements of usage limits"
-                }
             },
             "required": [
                 "sep_version",  
                 "identifier",
                 "create_date_time",
                 "responsible_entity_custodian",
+                "policy_reference",
                 "public_release",
                 "control_set"
             ]},
+        "shareability": {
+            "type": "array",
+            "items": {
+                "type": "string"
+                "enum": ["NCC", "EM", "LE", "IC"]
+            }
+        },
+        "entity": {
+            "type": "array",
+            "items": {
+                "type": "string"
+                "enum": ["MII", "GOV", "CTR", "SVR", "SVC", "DEV", "NET"]
+            }
+        }
+       "permitted_nationalities": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "$comment": "values from Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1"
+            }
+        },
+       "permitted_organizations": {
+           "type": "array",
+           "items": {
+               "type": "string",
+               "$comment": "enum is Appendix A of ACS 3.0 specification"
+           }
+       }
         "control_set": {
             "type": "object",
             "properties": {
@@ -108,21 +144,71 @@
                     "type": "string",
                     "enum": [ "U", "C", "S", "TS"]
                 },
-                "enititlements": {
+                "sci_controls": {
                     "type": "array",
-                    "items": {"type": "string"},
-                    "pattern": "^(SCI|LAC|COI|CUI|FD|CVT):\\w+$",
-                    "$comment": "see ACS specification"
+                    "items": {
+                        "type": "string",
+                        "$comment": "classified enum"
+                    }
                 },
+                "logical_authority_category": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                        "$comment": "values are listed in the NSA’s Master Data Registry"
+                    }
+                },
+                "formal_determination": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                        "enum": [
+                            "PUBREL",
+                            "NF",
+                            "AIS",
+                            "PII-NECESSARY-TO-UNDERSTAND-THREAT",
+                            "NO-PII-PRESENT",
+                            "FOUO"
+                        ]
+                    }
+                }
+                "caveat": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                        "enum": [
+                            "FISA",
+                            "POSSIBLEPII",
+                            "CISAPROPRIETARY"
+                        ]
+                    }
+                },
+                "sensitivity" {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                        "enum": [
+                            "NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA",
+                            "PCII",
+                            "LES",
+                            "INT",
+                            "PII",
+                            "PR",
+                            "TEI"
+                        ]
+                    }
+                },
+                "shareability": {
+                    "$ref": "#/definitions/shareability"
+                },
+                "entity": {
+                    "$ref": "#/definitions/entity"
+                }
                 "permitted_nationalities": {
-                    "type": "array",
-                    "items": {"type": "string"},
-                    "$comment": "values from Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1"
+                    "$ref": "#/definitions/permitted_nationalities"
                 },
-                "permitted_organization": {
-                     "type": "array",
-                     "items": {"type": "string"},
-                     "$comment": "values from appendix A"
+                "permitted_organizations": {
+                    "$ref": "#/definitions/permitted_organizations"
                 }
             },
             "required": ["capco_classification"]
@@ -170,10 +256,20 @@
                  "declass_event": {"type": "string"}
                }
           },
+         "resource_disposition": {
+             "type": "object",
+             "properties": {
+                 "disposition_date": {
+                     "$comment": "$ref: ../common/timestamp.json",
+                     "type": "string",
+                     "description": "The date of the disposition is initiated"
+                 },
+                 "disposition_process": {"type": "string"}
+             }
+         },
           "public_release": {
             "type": "object",
             "properties": {
-                "releasable_to_public": {"type": "boolean"},
                 "released_by": {"type": "string"},
                 "released_on": {
                     "$comment": "$ref: ../common/timestamp.json",
@@ -181,7 +277,65 @@
                     "description": "The date of public release."
                 }
             },
-            "required": ["releasable_to_public"]
+          },
+          "privilege_scope": {
+              "type": "object",
+              "properties": {
+                  "permitted_nationalities": {
+                    "$ref": "#/definitions/permitted_nationalities"
+                  },
+                  "permitted_organizations": {
+                      "$ref": "#/definitions/permitted_organizations"
+                  },
+                  "shareability": {
+                      "$ref": "#/definitions/shareability"
+                  },
+                  "entity": {
+                      "$ref": "#/definitions/entity"
+                  },
+                  "$comment": "how do we represent ALL",
+              }
+          }
+          "access_privilege": {
+              "type": "object",
+              "properties": {
+                  "privilege_action": {
+                      "type": "string"
+                      "enum": [
+                          "DSPLY", "IDSRC", "TENOT", "NETDEF", "LEGAL", "INTEL",
+                          "TEARLINE", "OPACTION", "REQUEST", "ANONYMOUSACCESS", "CISAUSES",
+                          "ALL"
+                      ],
+                  },
+                  "privilege_scope": {
+                      "$ref": "#/definitions/privilege_scope"
+                  },
+                  "rule_effect": {
+                      "type": "string",
+                      "enum": [ "permit", "deny"]
+                  }
+              }
+              "required": [
+                "privilege_action",
+                "privilege_scope",
+                "rule_effect"
+              ]
+          },
+          "further_sharing": {
+              "type": "object"
+              "properties": {
+                  "sharing_scope": {
+                      "type": "array",
+                      "items": {
+                          "type": "string",
+                          "$comment": "enum is Appendix A of ACS 3.0 specification"
+                      }
+                  },
+                  "rule_effect": {
+                      "type": "string",
+                      "enum": [ "permit", "deny"]
+                  }
+              }
           }
        }
    }

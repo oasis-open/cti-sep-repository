@@ -28,17 +28,13 @@
                "releasable_to_public": false
             },
             "control_set": {
-                "capco_classification": "TS//SI//NF",
+                "classification": "TS//SI//NF",
+                "sci_controls": ["SI"],
+                "formal_determination": ["AIS"],
                 "logical_authority_category": ["LAC12345"],
-                "community_of_interest ": ["NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"],
-                "organization": ["USA.NSA", "USA.DHS"]
-            },
-            "other_determination": [
-                "AIS", 
-                "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT"
-            ],
-            "terms_of_use": ["May be used for network defense for CISA uses. Anonymous access is not allowed. May be further shared with…."]
-        }
+                "sensitivity": ["NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"],
+                "permitted_organizations": ["USA.NSA", "USA.DHS"]
+            }
     },
     {
         "type": "marking-definition",
@@ -64,15 +60,14 @@
                "releasable_to_public": false
             },
             "control_set": {
-                "capco_classification": "S//SI//REL TO USA, FVEY",
-                "community_of_interest ": ["NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"],
-                "organization": ["USA.NSA", "USA.DHS"]
-            },
-            "other_dissemination": [
-                "AIS", 
-                "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT"
-            ], 
-            "terms_of_use": ["May be used for network defense for CISA uses. Anonymous access is not allowed. May be further shared with…."]
+            	"classification": "TS",
+            	"sci_controls": ["SI"],
+            	"logical_authority_category": ["LAC12345"],
+            	"formal_determination": ["AIS"],
+            	"sensitivity": ["NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"],
+            	"permitted_nationalities": ["USA", "AUS", "CAN", "GBR", "NZL"],
+            	"permitted_organizations": ["USA.NSA", "USA.DHS"]
+            }
         }
     },
     {
