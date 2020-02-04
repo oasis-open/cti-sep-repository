@@ -56,13 +56,16 @@ x-isa-acs-3-0 is the top-level type object of the ACS marking definition type.
 | **responsible_entity_custodian** (required) | `string` | This required property represents the data producer that is responsible for providing the associated resource to be shared. It is represented as an organization token. This value is necessary for auditing and enforcing data retention and provenance policies. Allowable values listed in Appendix A: List of Organizations of [ref] **MUST** be used. |
 | **responsible_entity_originator** (optional) | `string` | This optional property represents the originating organization for the associated resource. If not present then the origin of the information is unspecified. It is represented as an organization token. The organizations in Appendix A **SHOULD** be used. However, additional tokens may be created to specify the originator. Certain Originators may require anonymity to protect their identity. This is common when dealing with a cybersecurity threat or incident where the originator is an entity in the Private Sector. Cover terms (e.g., USENERGY01) assigned to an entity should be carried through anytime the resource is shared. |
 | **authority_reference** (optional) | `string` | This property captures the legal authority under which the content was created, not the limitation on sharing the content. This property is used for auditing and records management, not for access control decisions. In some cases, the Authority Reference is needed by ESSA Participants to be included in the Control Policy Group as well as the Resource Accounting Group.  It **MUST** be of the be of the format urn(:\w+)+. |
+| **policy_reference** (required) | `string` | This property provides the means of indicating a particular policy related to the sharing of the resource. Multiple URNs can be included, separated by a space, but one of the following MUST be included: <ul><li>urn:isa:policy:acs:ns:v3.0?privdefault=permit&amp;sharedefault=permit</ul></li> <ul><li>urn:isa:policy:acs:ns:v3.0?privdefault=permit&amp;sharedefault=deny</ul></li><ul><li>urn:isa:policy:acs:ns:v3.0?privdefault=deny&amp;sharedefault=permit</ul></li> <ul><li>	urn:isa:policy:acs:ns:v3.0?privdefault=deny&amp;sharedefault=deny</ul></li> Each value MUST be of the format urn(:\w+)+. |
 | **original_classification** (optional) | `x-isa-acs-original-classification-type` | This property provides details for generating a classification authority block for presentation of a classified resource to an operator. Either the Original Classification or the Derivative Classification is required for classified resources, as appropriate. Details regarding the basic encoding specification detail for Original Classification are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
 | **derivative_classification** (optional) | `x-isa-acs-derivative-classification-type` | This property provides details for generating a classification authority block for presentation of a classified resource to an operator. Either the Original Classification or the Derivative Classification is required for classified resources, as appropriate. Details regarding the basic encoding specification detail for Original Classification are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
 | **declassification** (optional) | `x-isa-acs-declassification-type` | This property provides the declassification instructions associated with an original or derived classification for generating a classification authority block for presentation of a classified resource to an operator. Details regarding the basic encoding specification detail for Declassification are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
+| **resource_disposition** (optional) | `x-isa-acs-resource_disposition-type` | This property can be used to provide a fixed date and time at which an action is to be taken on the associated resource, such as destruction. Retention can be enforced through the use of this property or through the use of policies. This property allows for specifying ad hoc (i.e., not policy based) retention limitation requests from information creators such as private industry. Details regarding the basic encoding specification detail for Resource Disposition are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
 | **public_release** (required) | `x-isa-acs-public-release-type` | This property will be used to provide the release authority and date for resources that have been through a formal public release determination process, or note that the resource has not been publicly released. Details regarding the basic encoding specification detail for Public Release are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
+| **access_privilege** (optional) | `list` of type `x-isa-acs-access-privilege-type` | This property provides a means of limiting or permitting specific actions once access control decisions have been made. |
+| **further_sharing** (optional) | `list` of type `x-isa-acs-access-privilege-type` |  This property provides a means of limiting or permitting further sharing once original access control decisions have been made. |
 | **control_set** (required) | `x-isa-acs-control-set-type` | The Control Set property is the group of data tags that are used to inform automated access control decisions. |
-| **other_determination** (optional) | `list` of type `x-isa-acs-other-determination-enum` | The property holds additional information about the access control. |
-| **terms_of_use** (optional) | `list` of type `string` | This property holds caveats and/or other textual statements of usage limits. |
+
 
 
 ### x-isa-acs-original-classification-type
@@ -100,16 +103,45 @@ This type provides the declassification instructions associated with an original
 | **declass_date**  (optional)  | `timestamp` | This property contains the date upon which a resource will be automatically declassified if not exempt.|
 | **declass_event**  (optional)  | `string` | This property contains the future occurrence upon which a resource will be automatically declassified if not exempt.|
 
-### x-isa-acs-public-release-type
-
-This typr will be used to provide the release authority and date for resources that have been through a formal public release determination process. Resources will further be marked with a formal determination marking (FD=PUBREL) (See Section 2.2.3.4). Details regarding the basic encoding specification detail for Public Release are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community (Reference 15).
+### x-isa-acs-resource-disposition-type
 
 #### Properties
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
-| **releasable_to_public**  (required) | `boolean` | This property indicates if this resource can be publicly released. Note, for certain values of the capco_classification property in x-isa-acs-control-set-type the value of this property MUST be false.|
+| **disposition_date** (required) | `timestamp` | This property contains the date upon which the declared disposition process is to be initiated. |
+| **disposition_process** (required) | `string` | This property contains the allowed disposition process to be performed (e.g., destruction). |
+
+
+### x-isa-acs-public-release-type
+
+This type will be used to provide the release authority and date for resources that have been through a formal public release determination process. Resources will further be marked with a formal determination marking (FD=PUBREL) (See Section 2.2.3.4). Details regarding the basic encoding specification detail for Public Release are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community (Reference 15).
+
+#### Properties
+| Property Name              | Type      | Description                            |
+| -------------              | ----      | -----------                            |
 | **released_by** (optional) | `string` | This property contains the authority that authorized the public release.|
 | **released_on**  (optional)  | `timestamp` | This property contains the date of public release |
+
+### x-isa-acs-access-privilege-type
+
+#### Properties
+| Property Name              | Type      | Description                            |
+| -------------              | ----      | -----------                            |
+| **privilege_action** (required) | `open-vocab` | This property indicates the action that may be taken when the access privilege is allowed. This is an open vocabulary and values **SHOULD** come from x-isa-privilege-action-ov vocabulary.|
+| **privilege_scope** (required) | `x-isa-acs-privilege-scope-type` | This property indicates the scope of the access privilege. |
+| **rule_effect** (required) | `x-isa-acs-rule-effect-enum` | This property indicates if actions are permitted or denied. The values of this property **MUST** come from the x-isa-acs-rule-effect -enum enumeration. |
+
+### x-isa-acs-privilege-scope-type 
+
+| Property Name              | Type      | Description                            |
+| -------------              | ----      | -----------                            |
+| **permitted_nationalities** (optional) | `list` of type `string` | The permitted_nationalities
+(CTRY) property identifies the limitation on the distribution of the resource based on nationality. Allowable values are listed in Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1  *MUST* be used. |
+| **permitted_organizations** (optional) | `list` of type `open vocab` | The permitted_organizations (ORG) property identifies the limitation on the distribution of the resource based on organization. Allowable values listed in Appendix A: List of Organizations of [ref] MUST be used. The set of possible values can be thought of as an open vocabulary, but it is not explicitly defined in this specification. |
+
+
+
+
 
 ### x-isa-acs-control-set-type
 
