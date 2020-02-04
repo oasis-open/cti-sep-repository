@@ -29,7 +29,6 @@
                "declass_event": "Per Exec Order blah-blah-blah"
           },
           "public_release": {
-               "releasable_to_public": true,
                "released_by": "DHS Public Relations Office",
                "released_on": "2018-07-20T00:00:00Z"
           },
