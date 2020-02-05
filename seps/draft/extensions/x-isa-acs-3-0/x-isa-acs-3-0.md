@@ -133,8 +133,7 @@ This type will be used to provide the release authority and date for resources t
 
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
-| **permitted_nationalities** (optional) | `list` of type `string` | The permitted_nationalities
-(CTRY) property identifies the limitation on the distribution of the resource based on nationality. Allowable values are listed in Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1  *MUST* be used. |
+| **permitted_nationalities** (optional) | `list` of type `string` | The permitted_nationalities (CTRY) property identifies the limitation on the distribution of the resource based on nationality. Allowable values are listed in Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1  **MUST** be used. |
 | **permitted_organizations** (optional) | `list` of type `open vocab` | The permitted_organizations (ORG) property identifies the limitation on the distribution of the resource based on organization. Allowable values listed in Appendix A: List of Organizations of [ref] MUST be used. The set of possible values can be thought of as an open vocabulary, but it is not explicitly defined in this specification. |
 | **shareabiity** (optional) |  `list` of type `x-isa-acs-shar-enum` | The shareability (SHAR) property is used to identify the shareability of a resource that may be released based on the determination of an originator in accordance with established disclosure procedures. The values of this property MUST come from the `x-isa-acs-shar-enum` enumeration.|
 | **entity** (optional) | `list` of type `x-isa-acs-entity-enum` | The entity (ENTITY) property is used to identify the entities to which information may be released based on the determination of an originator. The values of this property MUST come from the `x-isa-acs-entity-enum` enumeration.|
@@ -153,22 +152,55 @@ This type will be used to provide the release authority and date for resources t
 | -------------              | ----      | -----------                            |
 | **classification** (required) | `x-isa-acs-classification-enum` | This property contains information specifying the classification level. The Classification token contains the classification of the data based on the Executive Order 13526, Classified National Security Information (Reference 23) and the Information Security Manual (ISM) (Reference 17) marking system. Unclassifiedinformation will include a classification marking. The value of this property MUST come from the `x-isa-acs-classification-enum` enumeration. |
 | **sci_controls** (optional) | `list` of type `open-vocab` | The appropriate values for the sensitive compartmented information (SCI) property are listed in MDM SCI Control List [ref]. The set of possible values can be thought of as an open vocabulary, but it is not explicitly defined in this specification. |
-| **logical_authority_category** (optional) | `list` of type `open-vocab` | The logical_authority_category (LAC) property represent classes of authority upon which data can be generated or acquired and that can be used to apply mandatory special access control and handling policies. The allowable values are listed in the NSA’s Master Data Registry [ref].  The set of possible values can be thought of as an open vocabulary, but it is not explicitly defined in this specification. |
-| **formal_determination** (optional) | `list` of type `x-isa-acs-fd-enum` | The formal_determination (FD) property is used to Indicate other formal determinations beyond classification that have been applied to a resource. The values of this property **MUST** come from the `x-isa-acs-fd-enum` enumeration. |
-| **caveat** (optional) | `list` of type `x-isa-acs-cvt-enum` | The caveat (CVT) property is used to indicate a specific control. The values of this property **MUST** come from the `x-isa-acs-cvt-enum` enumeration. |
-| **sensitivity** (optional) | `list` of type `x-isa-acs-sens-enum` |The sensitivity (SENS) property is used to specify an inherent sensitivity about the data that requires specific restrictions in access or handling. The values of this property **MUST** come from the `x-isa-acs-sens-enum` enumeration.
-| **shareabiity** (optional) |  `list` of type `x-isa-acs-shar-enum` | The shareability (SHAR) property is used to identify the shareability of a resource that may be released based on the determination of an originator in accordance with established disclosure procedures. The values of this property MUST come from the `x-isa-acs-shar-enum` enumeration.|
-| **entity** (optional) | `list` of type `x-isa-acs-entity-enum` | The entity (ENTITY) property is used to identify the entities to which information may be released based on the determination of an originator. The values of this property MUST come from the `x-isa-acs-entity-enum` enumeration. |
-| **permitted_nationalities** (optional) | `list` of type `string` |The permitted_nationalities
-(CTRY) property identifies the limitation on the distribution of the resource based on nationality. Allowable values are listed in Geopolitical Entities, Names, and Codes (GENC) Standard Edition (https://api.nsgreg.nga.mil/geo-political/ISO3166-1/3/VI-12) **MUST** be used.|
-| **permitted_organization** (optional) | `list` of type `string` | The permitted_organizations (ORG) property identifies the limitation on the distribution of the resource based on organization. Allowable values listed in Appendix A: List of Organizations of [ref] **MUST** be used. The set of possible values can be thought of as an open vocabulary, but it is not explicitly defined in this specification.|
+| **logical_authority_category** (optional) | `list` of type `open-vocab` | The **logical_authority_category** (LAC) property represent classes of authority upon which data can be generated or acquired and that can be used to apply mandatory special access control and handling policies. The allowable values are listed in the NSA’s Master Data Registry [ref].  The set of possible values can be thought of as an open vocabulary, but it is not explicitly defined in this specification. |
+| **formal_determination** (optional) | `list` of type `x-isa-acs-fd-enum` | The **formal_determination** (FD) property is used to Indicate other formal determinations beyond classification that have been applied to a resource. The values of this property **MUST** come from the `x-isa-acs-fd-enum` enumeration. |
+| **caveat** (optional) | `list` of type `x-isa-acs-cvt-enum` | The **caveat** (CVT) property is used to indicate a specific control. The values of this property **MUST** come from the `x-isa-acs-cvt-enum` enumeration. |
+| **sensitivity** (optional) | `list` of type `x-isa-acs-sens-enum` |The **sensitivity** (SENS) property is used to specify an inherent sensitivity about the data that requires specific restrictions in access or handling. The values of this property **MUST** come from the `x-isa-acs-sens-enum` enumeration.
+| **shareabiity** (optional) |  `list` of type `x-isa-acs-shar-enum` | The **shareability** (SHAR) property is used to identify the shareability of a resource that may be released based on the determination of an originator in accordance with established disclosure procedures. The values of this property **MUST** come from the `x-isa-acs-shar-enum` enumeration.|
+| **entity** (optional) | `list` of type `x-isa-acs-entity-enum` | The entity (ENTITY) property is used to identify the entities to which information may be released based on the determination of an originator. The values of this property **MUST** come from the `x-isa-acs-entity-enum` enumeration. |
+| **permitted_nationalities** (optional) | `list` of type `string` |The **permitted_nationalities** (CTRY) property identifies the limitation on the distribution of the resource based on nationality. Allowable values are listed in Geopolitical Entities, Names, and Codes (GENC) Standard Edition (https://api.nsgreg.nga.mil/geo-political/ISO3166-1/3/VI-12) **MUST** be used.|
+| **permitted_organization** (optional) | `list` of type `string` | The **permitted_organizations** (ORG) property identifies the limitation on the distribution of the resource based on organization. Allowable values listed in Appendix A: List of Organizations of [ref] **MUST** be used. The set of possible values can be thought of as an open vocabulary, but it is not explicitly defined in this specification.|
 
 ## Enumerations
+
+### x-isa-privilege-action-ov
+
+| Vocabulary Value      | Description  |                                                                                    
+| -------------------   | -----------        |
+| DSPLY |	The action of displaying, either in a hard copy document or a visual presentation of the resource. DSPLY should be used to permit display when there is generally a global deny for all actions. |
+| IDSRC | . The action of identifying the source of the resource further than the entity receiving the resource. When set to deny, attributes or elements in the resource that identify the source and custodian must be removed or replaced prior to additional actions being taken. This restriction applies not only to the elements in the header of the resource but may also apply to elements within the body of the document being shared. The use of IDSRC does not authorize any changes to markings on the resource. For example, the removal of the source information will not change the classification of the resource. |
+| TENOT |	The action of notifying a targeted entity of a cybersecurity incident based on the resource. |
+| NETDEF |	The action of taking network defense actions including detection and mitigation, remediation, and local analysis and signature development, based on the resource.|
+| LEGAL|	The action of using the resource in legal proceedings.|
+|INTEL|	The action of conducting additional intelligence analysis based on the resource.|
+|TEARLINE|	The action of removing and taking further action on components of a resource based on their component markings. To be tear-lineable indicates that marked components of a document may be removed and treated as individually marked components. When set to deny, even though there may be components with fewer restrictions than the overall document, they may not be removed.|
+|OPACTION	|The action of conducting cyber-based operations applied to adversary capabilities based on the resource.|
+|REQUEST|	The action of requesting a waiver to an access privilege restriction. When set to deny, the originator will not consider specific requests to take actions based on the resource.|
+|ANONYMOUSACCESS|	The action of allowing anonymous access to the resource. This action is included to support the restrictions placed on the indicators shared with the US government from the DHS Automated Indicator Sharing (AIS) program.|
+|CISAUSES|	The cybersecurity purposes allowed in the Cybersecurity Information Sharing Act of 2015 [ref]|
+
+### x-isa-acs-rule-effect-enum
+
+| Vocabulary Value      | Description  |                                                                                    
+| -------------------   | -----------        |
+|permit|	The specified action, privilege, etc is permitted|
+|deny	|The specified action, privilege, etc is denied|
+
+### x-isa-acs-classification-enum
+
+| Vocabulary Value      | Description  |                                                                                    
+| -------------------   | -----------        |
+|U|	Unclassified|
+|C|	Confidential|
+|S|	Secret|
+|TS|	Top Secret|
+
+
 
 ### x-isa-acs-other-determination-enum
 
 
-| Vocabulary Value      | Description                                                                                                                             |
+| Vocabulary Value      | Description  |                                                                                    
 | -------------------   | -----------        |
 |  AIS| The resource is appropriate for AIS. |
 | INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT |  |
