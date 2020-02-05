@@ -195,19 +195,58 @@ This type will be used to provide the release authority and date for resources t
 |S|	Secret|
 |TS|	Top Secret|
 
-
-
-### x-isa-acs-other-determination-enum
-
+### x-isa-acs-fd-enum
 
 | Vocabulary Value      | Description  |                                                                                    
 | -------------------   | -----------        |
 |  AIS| The resource is appropriate for AIS. |
-| INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT |  |
+| FOUO | The resource is appropriate For Official Use Only. |
+| NF | Indicates that the resource is releasable to U.S. citizens and not releasable to foreign nationals without the permission of the originator.|
 | PII-NECESSARY-TO-UNDERSTAND-THREAT | Personally identifiable information (PII) necessary to understand the context of the resource is present. |
 | PII-NOT-PRESENT |Personally identifiable  (PII) is _not_ present.|
-| PII |Personally identifiable  (PII) is present.
-| PCII |Protected Critical Infrastructure Information (PCII) is present. |
+|PUBREL |Approved for Public Release |
+
+### x-isa-acs-cvt-enum
+
+| Vocabulary Value      | Description  |                                                                                    
+| -------------------   | -----------        |
+|FISA |	The FISA caveat marking denotes the presence of Foreign Intelligence Surveillance Act (FISA) (Reference 18) or FISA-derived information in the document. This is an informational marking only to highlight such information. Recipients of resources with the FISA control marking are responsible for ensuring that the resource is protected in conformance with the legal requirements of the FISA for limitations on use and warning displays. |
+| POSSIBLEPII	| The POSSIBLEPII caveat marking indicates to the recipient that the resource may contain Personally Identifiable Information (PII). Recipients are responsible for ensuring that the resource is protected according to their agencies policies related to PII.|
+|CISAPROPRIETARY	|The CISAPROPRIETARY caveat marking indicates that the resource must observe appropriate restrictions as requested by the originator in accordance with the Cybersecurity Information Sharing Act of 2015 [ref] |
+
+### x-isa-acs-sens-enum
+
+| Vocabulary Value      | Description  |                                                                                    
+| -------------------   | -----------        |
+|NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA 	|Enhanced Cybersecurity Services|
+|PCII |	Protected Critical Infrastructure Information|
+|LES	|Law Enforcement Sensitive Information|
+|INT |	Intelligence Information|
+|PII|	Personally Identifiable Information|
+|PR	|Cybersecurity Targeted Entity Information|
+|TEI|	Commercial Proprietary Information|
+
+### x-isa-acs-shar-enum
+
+| Vocabulary Value      | Description  |                                                                                    
+| -------------------   | -----------        |
+| NCC	| National Cyber Centers|
+|EM|	Emergency Management|
+|LE|	Law Enforcement|
+|IC|	Intelligence Community|
+
+### x-isa-acs-entity-enum
+
+| Vocabulary Value      | Description  |                                                                                    
+| -------------------   | -----------        |
+|MII|	Military service member|
+|GOV|	U.S. federal government civilian employee|
+|CTR|	Contractor|
+|SVR|	Server|
+|SVC|	Service, Widget, Application, Software, etc|
+|DEV	|End-point device|
+|NET|	Network device|
+
 
 ## Examples
 
@@ -222,39 +261,52 @@ Notice these examples of the ACS marking definitions appear as part of a marking
       "created": "2018-10-01T00:00:00Z",
       "definition_type": "x-isa-acs-3-0", 
       "definition": {
-          "identifier": "isa:guide.19001.ACS3-bc9034f8-c732-5328-b9df-d9d72aae480b", 
-          "name": "banner-marking",
+          "sep_version": "1",
+          "identifier": "isa:guide.19001.ACS3-bc9034f8-c732-5328-b9df-d9d72aae480b",
+	   "name": "banner_marking",
           "create_date_time": "2016-06-27T14:10:26.723Z",
           "responsible_entity_custodian": "USA.NSA",
           "responsible_entity_originator": "USA.NSA",
-          "auth_ref": "urn:isa:authority:CFR2013_32_2_236", 
-           "original_classification": {
+          "authority_reference": "urn:isa:authority:CFR2013_32_2_236", 
+          "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=deny&amp;sharedefault=deny",
+          "original_classification": {
                "classified_by": "Available-On-Request",
                "classified_on": "2017-01-10T00:00:00Z",
                "classification_reason ": "Example",
                "compilation_reason": "Orig-Doc"
-           },
-           "derivative_classification": {
+          },
+          "derivative_classification": {
                "classified_by": "Available-On-Request",
                "classified_on": "2018-02-20T00:00:00Z",
                "derived_from": "Orig-Doc"
-           },
-           "declassification": {
+          },
+          "declassification": {
                "declass_period": "32",
                "declass_date": "2020-02-20T00:00:00Z",
                "declass_event": "Per Exec Order blah-blah-blah"
-           },
-           "public_release": {
-               "releasable_to_public": "false"
-           },
-           "control_set": {
-                "capco_classification": "TS//SI//REL TO USA, FVEY",
-                "logical_authority_category": ["LAC12345"],
-                "community_of_interest": ["NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"],
-                "organization": ["USA.NSA", "USA.DHS"]
-           },
-           "other_determination": ["AIS"], 
-           "terms_of_use": ["May be used for network defense for CISA uses. Anonymous access is not allowed. May be further shared with…."]
+          },
+          "access_privilege": [
+{
+		    "privilege_action": "CISAUSES",
+		    "rule_effect": "permit"
+},
+{
+		    "privilege_action": "ANONYMOUSACCESS",
+		    "rule_effect": "deny"
+		}
+          ],
+          "public_release": {
+               "releasable_to_public ": "false"
+          },
+          "control_set": {
+                "classification": "TS",
+		  "sci_controls": ["SI"],
+		  "logical_authority_category": ["LAC12345"],
+		  "formal_determination": ["AIS"],
+		  "sensitivity": ["NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"],
+                "permitted_nationalities": ["USA", "AUS", "CAN", "GBR", "NZL"],
+                "permitted_organizations": ["USA.NSA", "USA.DHS"]N
+          }
       }
 }
 
