@@ -44,7 +44,7 @@ Mitre | TBD
 
 ### x-isa-acs-3-0
 
-x-isa-acs-3-0 is the top-level type object of the ACS marking definition type.  
+`x-isa-acs-3-0` is the top-level type object of the ACS marking definition type.  
 
 #### Properties
 | Property Name              | Type      | Description                            |
@@ -56,7 +56,7 @@ x-isa-acs-3-0 is the top-level type object of the ACS marking definition type.
 | **responsible_entity_custodian** (required) | `string` | This required property represents the data producer that is responsible for providing the associated resource to be shared. It is represented as an organization token. This value is necessary for auditing and enforcing data retention and provenance policies. <br/> <br/> Allowable values listed in Appendix A: List of Organizations of [ref] **MUST** be used. <br/> <br/>The set of allowable values can be thought of as an open vocabulary, but it is not explicitly defined in this specification.|
 | **responsible_entity_originator** (optional) | `string` | This optional property represents the originating organization for the associated resource. If not present then the origin of the information is unspecified. It is represented as an organization token. The organizations in Appendix A **SHOULD** be used. However, additional tokens may be created to specify the originator. <br/> <br/>The set of allowable values can be thought of as an open vocabulary, but it is not explicitly defined in this specification.<br/> <br/>Certain Originators may require anonymity to protect their identity. This is common when dealing with a cybersecurity threat or incident where the originator is an entity in the Private Sector. Cover terms (e.g., USENERGY01) assigned to an entity should be carried through anytime the resource is shared. |
 | **authority_reference** (optional) | `string` | This property captures the legal authority under which the content was created, not the limitation on sharing the content. This property is used for auditing and records management, not for access control decisions. In some cases, the Authority Reference is needed by ESSA Participants to be included in the Control Policy Group as well as the Resource Accounting Group.  <br/> <br/>It **MUST** be of the be of the format urn(:\w+)+. |
-| **policy_reference** (required) | `string` | This property provides the means of indicating a particular policy related to the sharing of the resource. <br/> <br/>Multiple URNs can be included, separated by a space, but one of the following **MUST** be included: <ul><li>urn:isa:policy:acs:ns:v3.0?privdefault=permit&amp;sharedefault=permit</ul></li> <ul><li>urn:isa:policy:acs:ns:v3.0?privdefault=permit&amp;sharedefault=deny</ul></li><ul><li>urn:isa:policy:acs:ns:v3.0?privdefault=deny&amp;sharedefault=permit</ul></li> <ul><li>	urn:isa:policy:acs:ns:v3.0?privdefault=deny&amp;sharedefault=deny</ul></li> <br/> <br/>Each value MUST be of the format urn(:\w+)+. |
+| **policy_reference** (required) | `string` | This property provides the means of indicating a particular policy related to the sharing of the resource. <br/> <br/>Multiple URNs can be included, separated by a space, but one of the following **MUST** be included: <ul><li>urn:isa:policy:acs:ns:v3.0?privdefault=permit&amp;sharedefault=permit</ul></li> <ul><li>urn:isa:policy:acs:ns:v3.0?privdefault=permit&amp;sharedefault=deny</ul></li><ul><li>urn:isa:policy:acs:ns:v3.0?privdefault=deny&amp;sharedefault=permit</ul></li> <ul><li>	urn:isa:policy:acs:ns:v3.0?privdefault=deny&amp;sharedefault=deny</ul></li> Each value MUST be of the format urn(:\w+)+. |
 | **original_classification** (optional) | `x-isa-acs-original-classification-type` | This property provides details for generating a classification authority block for presentation of a classified resource to an operator. <br/> <br/>Either the Original Classification or the Derivative Classification **MUST** be provided for classified resources, as appropriate. <br/> <br/>Details regarding the basic encoding specification detail for Original Classification are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
 | **derivative_classification** (optional) | `x-isa-acs-derivative-classification-type` | This property provides details for generating a classification authority block for presentation of a classified resource to an operator. <br/> <br/>Either the Original Classification or the Derivative Classification **MUST** be provided for classified resources, as appropriate. <br/> <br/>Details regarding the basic encoding specification detail for Original Classification are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
 | **declassification** (optional) | `x-isa-acs-declassification-type` | This property provides the declassification instructions associated with an original or derived classification for generating a classification authority block for presentation of a classified resource to an operator. <br/> <br/>Details regarding the basic encoding specification detail for Declassification are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community [ref]. |
@@ -125,7 +125,7 @@ This type will be used to provide the release authority and date for resources t
 #### Properties
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
-| **privilege_action** (required) | `open-vocab` | This property indicates the action that may be taken when the access privilege is allowed. <br/> <br/>This is an open vocabulary and values **SHOULD** come from x-isa-privilege-action-ov vocabulary.|
+| **privilege_action** (required) | `open-vocab` | This property indicates the action that may be taken when the access privilege is allowed. <br/> <br/>This is an open vocabulary and values **SHOULD** come from `x-isa-privilege-action-ov` vocabulary.|
 | **privilege_scope** (required) | `x-isa-acs-privilege-scope-type` | This property indicates the scope of the access privilege. |
 | **rule_effect** (required) | `x-isa-acs-rule-effect-enum` | This property indicates if actions are permitted or denied. <br/> <br/>The values of this property **MUST** come from the `x-isa-acs-rule-effect-enum` enumeration. |
 
@@ -134,8 +134,8 @@ This type will be used to provide the release authority and date for resources t
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
 | **permitted_nationalities** (optional) | `list` of type `string` | The **permitted_nationalities** (CTRY) property identifies the limitation on the distribution of the resource based on nationality. <br/> <br/>Allowable values are listed in Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1  **MUST** be used. |
-| **permitted_organizations** (optional) | `list` of type `open vocab` | The **permitted_organizations** (ORG) property identifies the limitation on the distribution of the resource based on organization. <br/> <br/>Allowable values listed in Appendix A: List of Organizations of [ref] MUST be used. <br/> <br/>The set of possible values can be thought of as an open vocabulary, but it is not explicitly defined in this specification. |
-| **shareabiity** (optional) |  `list` of type `x-isa-acs-shar-enum` | The **shareability** (SHAR) property is used to identify the shareability of a resource that may be released based on the determination of an originator in accordance with established disclosure procedures. <br/> <br/>The values of this property MUST come from the `x-isa-acs-shar-enum` enumeration.|
+| **permitted_organizations** (optional) | `list` of type `open vocab` | The **permitted_organizations** (ORG) property identifies the limitation on the distribution of the resource based on organization. <br/> <br/>Allowable values listed in Appendix A: List of Organizations of [ref] **MUST** be used. <br/> <br/>The set of possible values can be thought of as an open vocabulary, but it is not explicitly defined in this specification. |
+| **shareabiity** (optional) |  `list` of type `x-isa-acs-shar-enum` | The **shareability** (SHAR) property is used to identify the shareability of a resource that may be released based on the determination of an originator in accordance with established disclosure procedures. <br/> <br/>The values of this property **MUST** come from the `x-isa-acs-shar-enum` enumeration.|
 | **entity** (optional) | `list` of type `x-isa-acs-entity-enum` | The **entity** (ENTITY) property is used to identify the entities to which information may be released based on the determination of an originator. <br/> <br/>The values of this property MUST come from the `x-isa-acs-entity-enum` enumeration.|
 
 ### x-isa-acs-further-sharing-type
@@ -305,7 +305,7 @@ Notice these examples of the ACS marking definitions appear as part of a marking
 		  "formal_determination": ["AIS"],
 		  "sensitivity": ["NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA"],
                 "permitted_nationalities": ["USA", "AUS", "CAN", "GBR", "NZL"],
-                "permitted_organizations": ["USA.NSA", "USA.DHS"]N
+                "permitted_organizations": ["USA.NSA", "USA.DHS"]
           }
       }
 }
@@ -314,12 +314,11 @@ Notice these examples of the ACS marking definitions appear as part of a marking
 ### Example 2
 
 ```json
-
 {
     "type": "marking-definition",
     "id": "marking-definition--11b6042f-7b98-4b97-a168-bec4c025dda9",
     "created": "2018-10-01T00:00:00Z",
-    "definition_type": "x-isa-acs-3-0”, 
+    "definition_type": "x-isa-acs-3-0", 
     "definition": {
           "sep_version": "1",
           "identifier": "isa:guide.19001.ACS3-bc9034f8-c732-5328-b9df-d9d72aae4ccc",
