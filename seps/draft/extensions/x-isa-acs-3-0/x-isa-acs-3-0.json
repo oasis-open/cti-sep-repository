@@ -1,28 +1,47 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-sep-repository/blob/master/seps/draft/extensions/x-isa-acs-3-0/x-isa-acs-3-0.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "isa-acs-3-0",
     "description": "This marking extension was created to apply the SD-EDH Cyber Profile to ISA shared documents. This is one of two extensions used to apply the SD-EDH Cyber profile: the ISA Markings Extension and the ISA Markings Assertions Extension.",
     "type": "object",
-    "allOf": [{
-        "$ref": "#/definitions/marking_definition",
-        "properties": {
-            "definition_type": {
-                "type": "string",
-                "description": "The definition_type property identifies the type of Marking Definition.",
-                "enum": ["x-isa-acs-3-0"]
-            },
-            "definition": {
-                "$ref": "#/definitions/isa-acs-3-0",
-                "description": "The definition property contains the marking object itself."
-            }
+    "allOf": [
+        {
+            "$ref": "#/definitions/marking_definition"
         },
-        "additionalProperties": false
-    }],
+        {
+            "properties": {
+                "definition_type": {
+                    "type": "string",
+                    "description": "The definition_type property identifies the type of Marking Definition.",
+                    "enum": ["x-isa-acs-3-0"]
+                },
+                "definition": {
+                    "$ref": "#/definitions/isa-acs-3-0",
+                    "description": "The definition property contains the marking object itself."
+                }
+            },
+            "required": [
+                "definition",
+                "definition_type"
+            ]
+        }
+    ],
     "definitions": {
         "marking_definition": {
-            "$comment": "included here for easy validation using online jsonschema checkers - e.g. https://json-schema-validator.herokuapp.com/",
+            "$comment": "included here for easy validation using online jsonschema checkers - e.g. https://www.jsonschemavalidator.net/.  See https://github.com/oasis-open/cti-stix2-json-schemas/blob/master/schemas/common/marking-definition.json",
             "type": "object",
             "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^marking-definition--"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "The type of this object, which MUST be the literal `marking-definition`.",
+                  "enum": [
+                    "marking-definition"
+                  ]
+                },
                 "name" : {
                     "type" : "string",
                     "description": "A name used to identify the Marking Definition."
@@ -46,7 +65,7 @@
             }
         },
         "timestamp": {
-            "$comment": "included here for easy validation using online jsonschema checkers - e.g. https://json-schema-validator.herokuapp.com/",
+            "$comment": "included here for easy validation using online jsonschema checkers - e.g. https://www.jsonschemavalidator.net/. See https://github.com/oasis-open/cti-stix2-json-schemas/blob/master/schemas/common/timestamp.json",
             "type": "string",
             "pattern": "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$"
         },
@@ -86,7 +105,7 @@
                 },
                 "policy_reference": {
                     "type": "string",
-                    "pattern": "^(urn:isa:policy:acs:ns:v3\\.0\\?privdefault=(permit|deny)&amp;sharedefault=(permit|deny)\\s?)+$"
+                    "pattern": "^(urn:isa:policy:acs:ns:v3\\.0\\?privdefault=(permit|deny)&sharedefault=(permit|deny)\\s?)+$"
                 },
                 "original_classification": {
                     "$ref": "#/definitions/original_classification",
@@ -109,13 +128,13 @@
                     "description": "The release authority and date for resources that have been through a formal public release determination process."
                 },
                 "access_privilege": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "$comment": "$ref - #/definitions/access_privilege"
-                    },
-                    "minItems": 1,
-                    "$comment": "not required, but if used, there must be 1 item"
+                     "type": "array",
+                     "items": {
+                         "type": "object",
+                         "$ref": "#/definitions/access_privilege"
+                     },
+                     "minItems": 1,
+                     "$comment": "not required, but if used, there must be 1 item"
                 },
                 "further_sharing": {
                     "type": "array",
@@ -141,32 +160,20 @@
                 "control_set"
             ]},
         "shareability": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "enum": ["NCC", "EM", "LE", "IC"]
-            }
+            "type": "string",
+            "enum": ["NCC", "EM", "LE", "IC"]
         },
         "entity": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "enum": ["MII", "GOV", "CTR", "SVR", "SVC", "DEV", "NET"]
-            }
+            "type": "string",
+            "enum": ["MIL", "GOV", "CTR", "SVR", "SVC", "DEV", "NET"]
         },
        "permitted_nationalities": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "$comment": "values from Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1"
-            }
+            "type": "string",
+            "$comment": "values from Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1"
         },
        "permitted_organizations": {
-           "type": "array",
-           "items": {
-               "type": "string",
-               "$comment": "enum is Appendix A of ACS 3.0 specification"
-           }
+            "type": "string",
+            "$comment": "enum is Appendix A of ACS 3.0 specification"
        },
         "control_set": {
             "type": "object",
@@ -199,7 +206,8 @@
                             "AIS",
                             "PII-NECESSARY-TO-UNDERSTAND-THREAT",
                             "NO-PII-PRESENT",
-                            "FOUO"
+                            "FOUO",
+                            "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT"
                         ]
                     }
                 },
@@ -230,16 +238,28 @@
                     }
                 },
                 "shareability": {
-                    "$ref": "#/definitions/shareability"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/shareability"
+                    }
                 },
                 "entity": {
-                    "$ref": "#/definitions/entity"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/entity"
+                    }
                 },
                 "permitted_nationalities": {
-                    "$ref": "#/definitions/permitted_nationalities"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/permitted_nationalities"
+                    }
                 },
                 "permitted_organizations": {
-                    "$ref": "#/definitions/permitted_organizations"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/permitted_organizations"
+                    }
                 }
             },
             "additionalProperties": false,
@@ -297,6 +317,10 @@
                  },
                  "disposition_process": {"type": "string"}
              },
+             "required": [
+                 "disposition_date",
+                 "disposition_process"
+             ],
              "additionalProperties": false
          },
           "public_release": {
@@ -312,22 +336,70 @@
           },
           "privilege_scope": {
               "type": "object",
-              "$comment": "how do we represent ALL",
-              "properties": {
-                  "permitted_nationalities": {
-                    "$ref": "#/definitions/permitted_nationalities"
+              "$comment": "At least one property must be present",
+              "allOf": [
+                  {
+                      "properties": {
+                          "permitted_nationalities": {
+                              "type": "array",
+                              "items": {
+                                  "anyOf": [
+                                      { "$ref": "#/definitions/permitted_nationalities"},
+                                      {
+                                          "type": "string",
+                                          "enum": [ "ALL" ]
+                                      }
+                                  ]
+                              }
+                          },
+                          "permitted_organizations": {
+                              "type": "array",
+                              "items": {
+                                  "anyOf": [
+                                      { "$ref": "#/definitions/permitted_organizations"},
+                                      {
+                                          "type": "string",
+                                          "enum": [ "ALL" ]
+                                      }
+                                  ]
+                              }
+                              
+                          },
+                          "shareability": {
+                              "type": "array",
+                              "items": {
+                                  "oneOf": [
+                                      { "$ref": "#/definitions/shareability"},
+                                      {
+                                          "type": "string",
+                                          "enum": [ "ALL" ]
+                                      }
+                                  ]
+                              }
+                          },
+                          "entity": {
+                              "type": "array",
+                              "items": {
+                                  "oneOf": [
+                                      { "$ref": "#/definitions/entity"},
+                                      {
+                                          "type": "string",
+                                          "enum": [ "ALL" ]
+                                      }
+                                  ]
+                              }
+                          }
+                      }
                   },
-                  "permitted_organizations": {
-                      "$ref": "#/definitions/permitted_organizations"
-                  },
-                  "shareability": {
-                      "$ref": "#/definitions/shareability"
-                  },
-                  "entity": {
-                      "$ref": "#/definitions/entity"
+                  {
+                      "anyOf": [
+                          { "required": ["permitted_nationalities"] },
+                          { "required": ["permitted_organizations"] },
+                          { "required": ["shareability"] },
+                          { "required": ["entity"] }
+                      ]
                   }
-              },
-              "additionalProperties": false
+              ]
           },
           "access_privilege": {
               "type": "object",

@@ -1,0 +1,73 @@
+{
+
+    "type": "bundle",
+    "id": "bundle--5d0092c5-5f74-4287-9642-33f4c354e56d",
+    "objects": [
+	{
+	    "type": "marking-definition",
+	    "id": "marking-definition--e3896452-4dcf-4e19-a571-8571c1c530a2",
+	    "created": "2020-06-18T00:00:00Z",
+	    "definition_type": "x-isa-acs-3-0", 
+	    "definition": {
+		"sep_version": 1,
+		"identifier": "isa:guide.19001.ACS3-a526c69f-1468-4f4e-96eb-cdbf302cc0e3",
+		"name": "Use Case 3: PUBREL and Portion Marking - S", 
+		"create_date_time": "2018-05-27T14:10:26.723Z",
+		"responsible_entity_custodian": "USA.DHS",
+		"policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=deny&sharedefault=permit",
+		"control_set": {
+		    "classification": "S"
+		}
+	    }
+	},
+	{
+	    "type": "marking-definition",
+	    "id": "marking-definition--d0038fa3-d4db-460b-813d-191917213910",
+	    "created": "2020-06-18T00:00:00Z",
+	    "definition_type": "x-isa-acs-3-0", 
+	    "definition": {
+		"sep_version": 1,
+		"identifier": "isa:guide.19001.ACS3-2db30d2d-036c-4631-a057-bd85b189adee",
+		"name": "Use Case 3: PUBREL and Portion Marking - U", 
+		"create_date_time": "2018-05-27T14:10:26.723Z",
+		"responsible_entity_custodian": "USA.DHS",
+		"policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=permit&sharedefault=permit",
+		"public_release": {
+		    "released_by": "Authority",
+		    "released_on": "2020-01-01T00:00:00Z"
+		},
+		"control_set": {
+		    "classification": "U",
+   		    "formal_determination": ["PUBREL"],
+		}
+	    }
+	},
+	{
+	    "type": "ipv4-addr",
+	    "spec_version": "2.1",
+	    "id": "ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd",
+	    "value": "198.51.100.3"
+	    "object_marking_refs": [
+		"marking-definition--d0038fa3-d4db-460b-813d-191917213910"
+	    ]
+	},
+	{
+	    "type": "threat-actor",
+	    "spec_version": "2.1",
+	    "id": "threat-actor--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+	    "created": "2016-04-06T20:03:48.000Z",
+	    "modified": "2016-04-06T20:03:48.000Z",
+	    "threat_actor_types": [ "nation_state"],
+	    "name": "Evil Republic Div 37",
+	    "sophistication": "expert",
+	    "resource_level": "government",
+	    "primary_motivation": "organizational-gain",
+	    "object_marking_refs": [
+		"marking-definition--e3896452-4dcf-4e19-a571-8571c1c530a2"
+	    ]
+	}
+    ]
+}
+
+
+    
