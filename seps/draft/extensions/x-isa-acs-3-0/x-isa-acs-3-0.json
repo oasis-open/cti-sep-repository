@@ -368,7 +368,7 @@
                           "shareability": {
                               "type": "array",
                               "items": {
-                                  "oneOf": [
+                                  "anyOf": [
                                       { "$ref": "#/definitions/shareability"},
                                       {
                                           "type": "string",
@@ -380,7 +380,7 @@
                           "entity": {
                               "type": "array",
                               "items": {
-                                  "oneOf": [
+                                  "anyOf": [
                                       { "$ref": "#/definitions/entity"},
                                       {
                                           "type": "string",

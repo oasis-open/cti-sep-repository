@@ -12,7 +12,7 @@
           "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=deny&sharedefault=deny", 
           "control_set": {
               "classification": "TS",
-   	      "shareability": ["NCC"],
+              "shareability": ["NCC"],
       	      "entity": ["GOV", "CTR", "MIL"]
           }
     }

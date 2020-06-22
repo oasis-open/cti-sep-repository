@@ -10,41 +10,41 @@
         "create_date_time": "2018-05-27T14:10:26.723Z",
         "responsible_entity_custodian": "USA.FBI",
         "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=deny&sharedefault=permit",
-	"access_privilege": [
-	    {
-		"privilege_action": "INTEL",
+        "access_privilege": [
+            {
+                "privilege_action": "INTEL",
                 "privilege_scope": {
-		    "permitted_nationalities": ["ALL"],
+                    "permitted_nationalities": ["ALL"],
                     "permitted_organizations": ["ALL"],
-		    "shareability": ["ALL"],
-		    "entity": ["ALL"]
+                    "shareability": ["ALL"],
+                    "entity": ["ALL"]
                 },
-		"rule_effect": "permit"
+                "rule_effect": "permit"
             },
-	    {
-		"privilege_action": "DSPLY",
-                "privilege_scope": {
-		    "permitted_nationalities": ["ALL"],
-                    "permitted_organizations": ["ALL"],
-		    "shareability": ["ALL"],
-		    "entity": ["ALL"]
-                },
-		"rule_effect": "permit"
+            {
+                "privilege_action": "DSPLY",
+                    "privilege_scope": {
+                        "permitted_nationalities": ["ALL"],
+                        "permitted_organizations": ["ALL"],
+                        "shareability": ["ALL"],
+                        "entity": ["ALL"]
+                    },
+                    "rule_effect": "permit"
             },
-	    {
-		"privilege_action": "REQUEST",
-                "privilege_scope": {
-		    "permitted_nationalities": ["ALL"],
-                    "permitted_organizations": ["ALL"],
-		    "shareability": ["ALL"],
-		    "entity": ["ALL"]
+            {
+                "privilege_action": "REQUEST",
+                    "privilege_scope": {
+                        "permitted_nationalities": ["ALL"],
+                        "permitted_organizations": ["ALL"],
+                        "shareability": ["ALL"],
+                        "entity": ["ALL"]
                 },
-		"rule_effect": "permit"
+                "rule_effect": "permit"
             }
 	],
         "control_set": {
 	    "classification": "U",
-   	    "formal_detemimrmination": ["FOUO"]
+   	    "formal_determination": ["FOUO"]
         }
     }
 }
