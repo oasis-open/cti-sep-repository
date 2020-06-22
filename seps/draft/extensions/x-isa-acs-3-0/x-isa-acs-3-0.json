@@ -169,11 +169,11 @@
         },
        "permitted_nationalities": {
             "type": "string",
-            "$comment": "values from Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1"
+            "$comment": "should contain one or more values listed in 'Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1'"
         },
        "permitted_organizations": {
             "type": "string",
-            "$comment": "enum is Appendix A of ACS 3.0 specification"
+            "$comment": "should contain one or more values listed in Appendix A: List of Organizations of 'Information Sharing Architecture (ISA) Access Control Specification (ACS) Version 3.0a'"
        },
         "control_set": {
             "type": "object",
@@ -341,6 +341,7 @@
                   {
                       "properties": {
                           "permitted_nationalities": {
+                              "$comment": "use oneOf construction (see entity), once permitted_nationalities is the actual enum",
                               "type": "array",
                               "items": {
                                   "anyOf": [
@@ -353,41 +354,54 @@
                               }
                           },
                           "permitted_organizations": {
+                              "$comment": "use oneOf construction (see entity), once permitted_organizations is the actual enum",
                               "type": "array",
                               "items": {
                                   "anyOf": [
-                                      { "$ref": "#/definitions/permitted_organizations"},
+                                      { "$ref": "#/definitions/permitted_nationalities"},
                                       {
                                           "type": "string",
                                           "enum": [ "ALL" ]
                                       }
                                   ]
                               }
-                              
+                    
                           },
                           "shareability": {
                               "type": "array",
-                              "items": {
-                                  "anyOf": [
-                                      { "$ref": "#/definitions/shareability"},
-                                      {
-                                          "type": "string",
-                                          "enum": [ "ALL" ]
-                                      }
-                                  ]
-                              }
+                              "oneOf": [
+                                  {
+                                      "type": "array",
+                                      "items": {"$ref":"#/definitions/shareability"}
+                                  },
+                                  {
+                                    "type": "array",
+                                      "items":
+                                          {
+                                              "type": "string",
+                                              "enum": [ "ALL" ],
+                                              "max_items": 1
+                                          }
+                                  }
+                              ]
                           },
                           "entity": {
                               "type": "array",
-                              "items": {
-                                  "anyOf": [
-                                      { "$ref": "#/definitions/entity"},
-                                      {
-                                          "type": "string",
-                                          "enum": [ "ALL" ]
-                                      }
-                                  ]
-                              }
+                              "oneOf": [
+                                  {
+                                      "type": "array",
+                                      "items": {"$ref":"#/definitions/entity"}
+                                  },
+                                  {
+                                    "type": "array",
+                                      "items":
+                                          {
+                                              "type": "string",
+                                              "enum": [ "ALL" ],
+                                              "max_items": 1
+                                          }
+                                  }
+                              ]
                           }
                       }
                   },
