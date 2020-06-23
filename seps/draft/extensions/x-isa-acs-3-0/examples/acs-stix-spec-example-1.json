@@ -29,20 +29,20 @@
                "declass_event": "Per Exec Order blah-blah-blah"
           },
           "access_privilege": [
-{
-            "privilege_action": "CISAUSES",
-                   "privilege_scope": {
-                       "permitted_nationalities": ["USA", "AUS", "CAN", "GBR", "NZL"]
-            },
-            "rule_effect": "permit"
-},
-{
-            "privilege_action": "ANONYMOUSACCESS",
-            "privilege_scope": {
-                     "permitted_nationalities": ["ALL"]
-                   },
-            "rule_effect": "deny"
-        }
+              {
+                "privilege_action": "CISAUSES",
+                       "privilege_scope": {
+                           "permitted_nationalities": ["USA", "AUS", "CAN", "GBR", "NZL"]
+                },
+                "rule_effect": "permit"
+              },
+              {
+                "privilege_action": "ANONYMOUSACCESS",
+                "privilege_scope": {
+                         "permitted_nationalities": ["ALL"]
+                       },
+                "rule_effect": "deny"
+              }
           ],
           "control_set": {
                 "classification": "TS",

@@ -1,19 +1,25 @@
 {
-    "type": "marking-definition",
-    "id": "marking-definition--ff7043e7-b1c9-4115-8bfc-79db1bed6862",
-    "created": "2020-06-18T00:00:00Z",
-    "definition_type": "x-isa-acs-3-0",
-    "definition": {
-        "sep_version": 1,
-        "identifier": "isa:guide.19001.ACS3-6b142579-f21c-4199-865c-207d9df7313c",
-        "name": "Use Case 4: Analytic NPE",
-        "create_date_time": "2018-05-27T14:10:26.723Z",
-        "responsible_entity_custodian": "USA.DC3",
-        "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=permit&sharedefault=permit",
-        "control_set": {
-            "classification": "U",
-            "permitted_organizations": ["USA.USG"],
-            "entity": [ "MIL", "CTR", "GOV", "SVR", "SVC", "DEV", "NET"]
+    "type": "bundle",
+    "id": "bundle--0a2277ac-a785-4c11-b691-582293ea9eb1",
+    "objects": [
+        {
+            "type": "marking-definition",
+            "created": "2020-06-18T00:00:00Z",
+            "definition_type": "x-isa-acs-3-0",
+            "definition": {
+                "control_set": {
+                    "classification": "U",
+                    "permitted_organizations": ["USA.USG"],
+                    "entity": [ "MIL", "CTR", "GOV", "SVR", "SVC", "DEV", "NET"]
+                },
+                "create_date_time": "2018-05-27T14:10:26.723Z",
+                "identifier": "isa:guide.19001.ACS3-6b142579-f21c-4199-865c-207d9df7313c",
+                "name": "Use Case 4: Analytic NPE",
+                "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=permit&sharedefault=permit",
+                "responsible_entity_custodian": "USA.DOD.DC3",
+                "sep_version": 1
+            },
+            "id": "marking-definition--ff7043e7-b1c9-4115-8bfc-79db1bed6862"
         }
-    }
+    ]
 }

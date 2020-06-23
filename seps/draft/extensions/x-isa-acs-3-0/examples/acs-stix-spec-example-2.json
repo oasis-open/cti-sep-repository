@@ -12,25 +12,25 @@
           "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=deny&sharedefault=deny",
           "access_privilege": [
                {
-            "privilege_action": "CISAUSES",
+                   "privilege_action": "CISAUSES",
                    "privilege_scope": {
-                     "permitted_nationalities": ["ALL"],
-                     "permitted_organizations": ["ALL"]
+                       "permitted_nationalities": ["ALL"],
+                       "permitted_organizations": ["ALL"]
                    },
-            "rule_effect": "permit"
+                   "rule_effect": "permit"
                },
                {
-            "privilege_action": "ANONYMOUSACCESS",
-                   "privilege_scope": {
-                     "permitted_nationalities": ["ALL"],
-                     "permitted_organizations": ["ALL"]
-                   },
-            "rule_effect": "permit"
-        }
+                    "privilege_action": "ANONYMOUSACCESS",
+                    "privilege_scope": {
+                        "permitted_nationalities": ["ALL"],
+                        "permitted_organizations": ["ALL"]
+                    },
+                    "rule_effect": "permit"
+               }
           ],
           "control_set": {
                 "classification": "U",
-             "formal_determination": ["FOUO", "AIS"],
+                "formal_determination": ["FOUO", "AIS"],
                 "permitted_organizations": ["USA.NSA", "USA.DHS"]
            }
     }

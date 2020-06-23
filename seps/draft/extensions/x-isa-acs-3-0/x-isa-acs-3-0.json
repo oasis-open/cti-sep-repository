@@ -306,6 +306,7 @@
                  },
                  "declass_event": {"type": "string"}
             },
+            "minProperties": 1,
             "additionalProperties": false
           },
          "resource_disposition": {
@@ -332,6 +333,7 @@
                     "description": "The date of public release."
                 }
             },
+            "minProperties": 1,
             "additionalProperties": false
           },
           "privilege_scope": {
@@ -343,45 +345,47 @@
                           "permitted_nationalities": {
                               "$comment": "use oneOf construction (see entity), once permitted_nationalities is the actual enum",
                               "type": "array",
-                              "items": {
-                                  "anyOf": [
-                                      { "$ref": "#/definitions/permitted_nationalities"},
-                                      {
+                              "anyOf": [
+                                  {
+                                    "items": { "$ref": "#/definitions/permitted_nationalities"}
+                                  },
+                                  {
+                                      "items": {
                                           "type": "string",
                                           "enum": [ "ALL" ]
-                                      }
-                                  ]
-                              }
+                                      },
+                                      "max_items": 1
+                                  }
+                              ]
                           },
                           "permitted_organizations": {
                               "$comment": "use oneOf construction (see entity), once permitted_organizations is the actual enum",
                               "type": "array",
-                              "items": {
-                                  "anyOf": [
-                                      { "$ref": "#/definitions/permitted_nationalities"},
-                                      {
+                              "anyOf": [
+                                  {
+                                    "items": { "$ref": "#/definitions/permitted_organizations"}
+                                  },
+                                  {
+                                      "items": {
                                           "type": "string",
                                           "enum": [ "ALL" ]
-                                      }
-                                  ]
-                              }
-                    
+                                      },
+                                      "max_items": 1
+                                  }
+                              ]
                           },
                           "shareability": {
                               "type": "array",
                               "oneOf": [
                                   {
-                                      "type": "array",
                                       "items": {"$ref":"#/definitions/shareability"}
                                   },
                                   {
-                                    "type": "array",
-                                      "items":
-                                          {
-                                              "type": "string",
-                                              "enum": [ "ALL" ],
-                                              "max_items": 1
-                                          }
+                                      "items": {
+                                          "type": "string",
+                                          "enum": [ "ALL" ]
+                                      },
+                                      "max_items": 1
                                   }
                               ]
                           },
@@ -389,17 +393,15 @@
                               "type": "array",
                               "oneOf": [
                                   {
-                                      "type": "array",
                                       "items": {"$ref":"#/definitions/entity"}
                                   },
                                   {
-                                    "type": "array",
                                       "items":
                                           {
                                               "type": "string",
-                                              "enum": [ "ALL" ],
-                                              "max_items": 1
-                                          }
+                                              "enum": [ "ALL" ]
+                                          },
+                                          "max_items": 1
                                   }
                               ]
                           }
@@ -456,7 +458,11 @@
                       "enum": [ "permit", "deny"]
                   }
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "required": [
+                "sharing_scope",
+                "rule_effect"
+              ]
           }
        }
    }
