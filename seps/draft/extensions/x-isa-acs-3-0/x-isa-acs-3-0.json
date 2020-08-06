@@ -89,14 +89,13 @@
                     "description": "The date of the ACS creation."
                 },
                 "responsible_entity_custodian": {
-                    "type": "string",
+                    "$ref": "#/definitions/custodian",
                     "description": "custodian",
-                    "$comment": "enum is Appendix A of ACS 3.0 specification"
                 },
                 "responsible_entity_originator": {
                     "type": "string",
                     "description": "originator",
-                    "$comment": "enum is Appendix A of ACS 3.0 specification"
+                    "$comment": "based on Appendix A of ACS 3.0a specification"
                 },
                 "authority_reference": {
                     "type": "string",
@@ -167,13 +166,50 @@
             "type": "string",
             "enum": ["MIL", "GOV", "CTR", "SVR", "SVC", "DEV", "NET"]
         },
+        "custodian": {
+            "type": "string",
+            "$comment": "a subset of Appendix A: List of Organizations of 'Information Sharing Architecture (ISA) Access Control Specification (ACS) Version 3.0a'",
+            "oneOf": [
+                {
+                    "enum": [
+                        "USA.CIA", "USA.CTIIC",
+                        "USA.DIA",
+                        "USA.DHS", "USA.DHS.CBP", "USA.DHS.ICE", "USA.DHS.NCCIC", "USA.DHS.NCSC", "USA.DHS.TSA", "USA.DHS.USCG", "USA.DHS.US-CERT", "USA.DHS.USSS",
+                        "USA.DISA",
+                        "USA.DNI", "USA.DNI.IC-SCC",
+                        "USA.DOC", "USA.DOC.NIST",
+                        "USA.DOD", "USA.DOD.AFCYBER", "USA.DOD.ARCYBER", "USA.DOD.C10F","USA.DOD.DC3", "USA.DOD.MARFORCYBER", "USA.DOD.USA", "USA.DOD.USAF", "USA.DOD.USCYBERCOM", "USA.DOD.USCYBERCOM-JOC", "USA.DOD.USMC", "USA.DOD.USN", "USA.DOD.USSTRATCOM",
+                        "USA.DOE",
+                        "USA.DOJ", "USA.DOJ.DEA", "USA.DOJ.FBI",
+                        "USA.DOS",
+                        "USA.DOT", "USA.DOT.FAA",
+                        "USA.ED",
+                        "USA.EOP",
+                        "USA.GSA",
+                        "USA.HHS",
+                        "USA.HUD",
+                        "USA.NASA",
+                        "USA.NCIJTF",
+                        "USA.NGA",
+                        "USA.NRO",
+                        "USA.NSA", "USA.NSA.NTOC",
+                        "USA.SSA",
+                        "USA.TREAS",
+                        "USA.USDA"
+                    ]
+                },
+                {
+                    "pattern": "\"USA.(AL|AK|AZ|AR|CA|CO|CT|DE|DC|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|AS|GU|MH|FM|MP|PW|PR|VI\""
+                }
+            ]
+        },
        "permitted_nationalities": {
             "type": "string",
             "$comment": "should contain one or more values listed in 'Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1'"
         },
        "permitted_organizations": {
             "type": "string",
-            "$comment": "should contain one or more values listed in Appendix A: List of Organizations of 'Information Sharing Architecture (ISA) Access Control Specification (ACS) Version 3.0a'"
+            "$comment": "based on Table A1 in Appendix A: List of Organizations of 'Information Sharing Architecture (ISA) Access Control Specification (ACS) Version 3.0a'",
        },
         "control_set": {
             "type": "object",
@@ -333,7 +369,9 @@
                     "description": "The date of public release."
                 }
             },
-            "minProperties": 1,
+            "required": [
+                "released_by",
+            ],
             "additionalProperties": false
           },
           "privilege_scope": {
@@ -359,7 +397,7 @@
                               ]
                           },
                           "permitted_organizations": {
-                              "$comment": "use oneOf construction (see entity), once permitted_organizations is the actual enum",
+                              "$comment": "use oneOf construction (see entity), once permitted_organizations defined based on Appendix A of ACS 3.0a specification",
                               "type": "array",
                               "anyOf": [
                                   {
@@ -450,7 +488,7 @@
                       "type": "array",
                       "items": {
                           "type": "string",
-                          "$comment": "enum is Appendix A of ACS 3.0 specification"
+                          "$comment": "based on Appendix A of ACS 3.0 specification"
                       }
                   },
                   "rule_effect": {

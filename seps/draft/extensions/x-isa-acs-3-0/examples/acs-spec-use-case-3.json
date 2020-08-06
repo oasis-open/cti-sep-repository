@@ -64,6 +64,22 @@
             "object_marking_refs": [
                 "marking-definition--e3896452-4dcf-4e19-a571-8571c1c530a2"
             ]
+        },
+        {
+            "type": "report",
+            "spec_version": "2.1",
+            "id": "report--eff11c91-12da-4bec-ac82-285d1efc0cf6",
+            "created": "2020-06-18T00:00:00Z",
+            "modified": "2020-06-18T00:00:00Z",
+            "name": "Use Case 3: PUBREL and Portion Marking",
+            "published": "2020-07-19T00:00:00Z",
+            "report_types": [ "threat-actor"],
+            "object_refs": [
+                "marking-definition--e3896452-4dcf-4e19-a571-8571c1c530a2",
+                "marking-definition--d0038fa3-d4db-460b-813d-191917213910",
+                "ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd",
+                "threat-actor--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f"
+            ]
         }
     ]
 }
