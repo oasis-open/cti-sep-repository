@@ -61,7 +61,7 @@ Mitre | TBD
 | **derivative_classification** (optional) | `x-isa-acs-derivative-classification-type` | This property provides details for generating a classification authority block for presentation of a classified resource to an operator. <br/> <br/>Either the **original_classification** or **derivative_classification** property **MUST** be provided for classified resources, as appropriate. <br/> <br/>Details regarding the basic encoding specification detail for Original Classification are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community. |
 | **declassification** (optional) | `x-isa-acs-declassification-type` | This property provides the declassification instructions associated with an original or derived classification for generating a classification authority block for presentation of a classified resource to an operator. <br/> <br/>Details regarding the basic encoding specification detail for Declassification are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community. |
 | **resource_disposition** (optional) | `x-isa-acs-resource-disposition-type` | This property can be used to provide a fixed date and time at which an action is to be taken on the associated resource, such as destruction. Retention can be enforced through the use of this property or through the use of policies. <br/> <br/>This property allows for specifying ad hoc (i.e., not policy based) retention limitation requests from information creators such as private industry. <br/> <br/>Details regarding the basic encoding specification detail for Resource Disposition are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community. |
-| **public_release** (required) | `x-isa-acs-public-release-type` | This property will be used to provide the release authority and date for resources that have been through a formal public release determination process, or note that the resource has not been publicly released. <br/> <br/>Details regarding the basic encoding specification detail for Public Release are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community. |
+| **public_release** (required) | `x-isa-acs-public-release-type` | This property will be used to provide the release authority and date for resources that have been through a formal public release determination process, or note that the resource has not been publicly released. <br/> <br/>Details regarding the basic encoding specification detail for Public Release are included in the Smart Data – Enterprise Data Header (EDH) Implementation Profile for the Cyber Community. <br/> This property **MUST** be present if the **control_set/formal_determination property** contains PUBREL.|
 | **access_privilege** (optional) | `list` of type `x-isa-acs-access-privilege-type` | This property provides a means of limiting or permitting specific actions once access control decisions have been made. |
 | **further_sharing** (optional) | `list` of type `x-isa-acs-access-privilege-type` |  This property provides a means of limiting or permitting further sharing once original access control decisions have been made. |
 | **control_set** (required) | `x-isa-acs-control-set-type` | The **control_set** property is the group of data tags that are used to inform automated access control decisions. |
@@ -105,13 +105,10 @@ Mitre | TBD
 
 
 ### x-isa-acs-public-release-type
-
-All properties in this object type are optional.  To make use of this object type, at least one property **MUST** be present.
-
 #### Properties
 | Property Name              | Type      | Description                            |
 | -------------              | ----      | -----------                            |
-| **released_by** (optional) | `string` | This property contains the authority that authorized the public release.|
+| **released_by** (required) | `string` | This property contains the authority that authorized the public release.|
 | **released_on**  (optional)  | `timestamp` | This property contains the date of public release |
 
 ### x-isa-acs-access-privilege-type
