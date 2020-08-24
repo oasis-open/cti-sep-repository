@@ -1,0 +1,17 @@
+{
+    "type": "marking-definition",
+    "id": "marking-definition--0b853b6b-82fd-4396-b239-2eed3dfc8f3f",
+    "created": "2018-10-01T00:00:00Z",
+    "definition_type": "x-isa-acs-3-0",
+    "definition": {
+        "sep_version": 1,
+        "identifier": "isa:guide.19001.ACS3-c4438c90-94c5-445c-8d05-162b1d135f26",
+        "create_date_time": "2018-09-07T12:17:46.793Z",
+        "responsible_entity_custodian": "USA.NSA",
+        "authority_reference": "urn:isa:authority:CFR2013_32_2_236",
+        "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=permit&sharedefault=permit",
+        "control_set": {
+                "classification": "U",
+        }
+    }
+}
