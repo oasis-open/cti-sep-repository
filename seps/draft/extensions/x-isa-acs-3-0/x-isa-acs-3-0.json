@@ -33,7 +33,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "pattern": "^marking-definition--"
+                    "pattern": "^marking-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
                 },
                 "type": {
                   "type": "string",
@@ -47,7 +47,8 @@
                     "description": "A name used to identify the Marking Definition."
                 },
                 "created_by_ref": {
-                    "pattern": "^marking-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$",
+		    "type" : "string",
+                    "pattern": "^identity--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$",
                     "description": "The created_by_ref property specifies the ID of the identity object that describes the entity that created this Marking Definition."
                 },
                 "created": {
@@ -58,6 +59,7 @@
                     "type": "array",
                     "description": "The object_marking_refs property specifies a list of IDs of marking-definition objects that apply to this Marking Definition.",
                     "items": {
+			"type" : "string",
                         "pattern": "^marking-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
                     },
                     "minItems": 1
@@ -392,7 +394,7 @@
                                         "type": "string",
                                         "enum": [ "ALL" ]
                                     },
-                                    "max_items": 1
+                                    "maxItems": 1
                                 }
                             ]
                         },
@@ -408,73 +410,74 @@
                                         "type": "string",
                                         "enum": [ "ALL" ]
                                     },
-                                    "max_items": 1
+                                    "maxItems": 1
                                 }
                             ]
-                        },
-                        "shareability": {
-                            "type": "array",
-                            "oneOf": [
-                                {
-                                    "items": {"$ref":"#/definitions/shareability"}
-                                },
-                                {
-                                    "items": {
-                                        "type": "string",
-                                        "enum": [ "ALL" ]
-                                    },
-                                    "max_items": 1
-                                }
-                            ]
-                        },
-                        "entity": {
-                            "type": "array",
-                            "oneOf": [
-                                {
-                                    "items": {"$ref":"#/definitions/entity"}
-                                },
-                                {
-                                    "items": {
-                                        "type": "string",
-                                        "enum": [ "ALL" ]
-                                    },
-                                    "max_items": 1
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "anyOf": [
-                        { "required": ["permitted_nationalities"] },
-                        { "required": ["permitted_organizations"] },
-                        { "required": ["shareability"] },
-                        { "required": ["entity"] }
-                    ]
-                }
-            ]
-        },
-        "access_privilege": {
-            "type": "object",
-            "properties": {
-                "privilege_action": {
-                    "type": "string",
-                    "enum": [
-                        "DSPLY", "IDSRC", "TENOT", "NETDEF", "LEGAL", "INTEL",
-                        "TEARLINE", "OPACTION", "REQUEST", "ANONYMOUSACCESS", "CISAUSES",
-                        "ALL"
-                    ]
-                },
-                "privilege_scope": {
-                    "$ref": "#/definitions/privilege_scope"
-                },
-                "rule_effect": {
-                    "type": "string",
-                    "enum": [ "permit", "deny"]
-                }
-            },
-            "additionalProperties": false,
-            "required": [
+                         },
+                         "shareability": {
+                             "type": "array",
+                             "oneOf": [
+                                 {
+                                     "items": {"$ref":"#/definitions/shareability"}
+                                 },
+                                 {
+                                     "items": {
+                                         "type": "string",
+                                         "enum": [ "ALL" ]
+                                     },
+                                     "maxItems": 1
+                                 }
+                             ]
+                          },
+                          "entity": {
+                              "type": "array",
+                              "oneOf": [
+                                  {
+                                      "items": {"$ref":"#/definitions/entity"}
+                                  },
+                                  {
+                                      "items":
+                                          {
+                                              "type": "string",
+                                              "enum": [ "ALL" ]
+                                          },
+                                          "maxItems": 1
+                                  }
+                              ]
+                          }
+                      }
+                  },
+                  {
+                      "anyOf": [
+                          { "required": ["permitted_nationalities"] },
+                          { "required": ["permitted_organizations"] },
+                          { "required": ["shareability"] },
+                          { "required": ["entity"] }
+                      ]
+                  }
+              ]
+          },
+          "access_privilege": {
+              "type": "object",
+              "properties": {
+                  "privilege_action": {
+                      "type": "string",
+                      "enum": [
+                          "DSPLY", "IDSRC", "TENOT", "NETDEF", "LEGAL", "INTEL",
+                          "TEARLINE", "OPACTION", "REQUEST", "ANONYMOUSACCESS", "CISAUSES",
+                          "ALL"
+                      ]
+                  },
+                  "privilege_scope": {
+                      "$ref": "#/definitions/privilege_scope"
+                  },
+                  "rule_effect": {
+                      "type": "string",
+                      "enum": [ "permit", "deny"]
+                  }
+              },
+              "additionalProperties": false,
+              "required": [
                 "privilege_action",
                 "privilege_scope",
                 "rule_effect"
