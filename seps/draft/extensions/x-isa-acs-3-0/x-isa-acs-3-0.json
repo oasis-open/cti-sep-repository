@@ -153,7 +153,7 @@
             },
             "additionalProperties": false,
             "required": [
-                "sep_version",  
+                "sep_version",
                 "identifier",
                 "create_date_time",
                 "responsible_entity_custodian",
@@ -332,37 +332,37 @@
              },
              "additionalProperties": false,
              "required": ["classified_by"]
-         },
-         "declassification": {
-             "type": "object",
-             "properties": {
+        },
+        "declassification": {
+            "type": "object",
+            "properties": {
                 "declass_exemption": {"type": "string"},
                 "declass_period": {"type": "integer"},
                 "declass_date": {
                     "$ref": "#/definitions/timestamp",
                     "description": "A date upon which a resource will be automatically declassified if not exempt."
-                 },
-                 "declass_event": {"type": "string"}
+                },
+                "declass_event": {"type": "string"}
             },
             "minProperties": 1,
             "additionalProperties": false
-          },
-         "resource_disposition": {
-             "type": "object",
-             "properties": {
-                 "disposition_date": {
+        },
+        "resource_disposition": {
+            "type": "object",
+            "properties": {
+                "disposition_date": {
                     "$ref": "#/definitions/timestamp",
-                     "description": "The date of the disposition is initiated"
-                 },
-                 "disposition_process": {"type": "string"}
-             },
-             "required": [
-                 "disposition_date",
-                 "disposition_process"
-             ],
-             "additionalProperties": false
-         },
-          "public_release": {
+                    "description": "The date of the disposition is initiated"
+                },
+                "disposition_process": {"type": "string"}
+            },
+            "required": [
+                "disposition_date",
+                "disposition_process"
+            ],
+            "additionalProperties": false
+        },
+        "public_release": {
             "type": "object",
             "properties": {
                 "released_by": {"type": "string"},
@@ -375,59 +375,59 @@
                 "released_by"
             ],
             "additionalProperties": false
-          },
-          "privilege_scope": {
-              "type": "object",
-              "$comment": "At least one property must be present",
-              "allOf": [
-                  {
-                      "properties": {
-                          "permitted_nationalities": {
-                              "$comment": "use oneOf construction (see entity), once permitted_nationalities is the actual enum",
-                              "type": "array",
-                              "anyOf": [
-                                  {
+        },
+        "privilege_scope": {
+            "type": "object",
+            "$comment": "At least one property must be present",
+            "allOf": [
+                {
+                    "properties": {
+                        "permitted_nationalities": {
+                            "$comment": "use oneOf construction (see entity), once permitted_nationalities is the actual enum",
+                            "type": "array",
+                            "anyOf": [
+                                {
                                     "items": { "$ref": "#/definitions/permitted_nationalities"}
-                                  },
-                                  {
-                                      "items": {
-                                          "type": "string",
-                                          "enum": [ "ALL" ]
-                                      },
-                                      "maxItems": 1
-                                  }
-                              ]
-                          },
-                          "permitted_organizations": {
-                              "$comment": "use oneOf construction (see entity), once permitted_organizations defined based on Appendix A of ACS 3.0a specification",
-                              "type": "array",
-                              "anyOf": [
-                                  {
+                                },
+                                {
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [ "ALL" ]
+                                    },
+                                    "maxItems": 1
+                                }
+                            ]
+                        },
+                        "permitted_organizations": {
+                            "$comment": "use oneOf construction (see entity), once permitted_organizations defined based on Appendix A of ACS 3.0a specification",
+                            "type": "array",
+                            "anyOf": [
+                                {
                                     "items": { "$ref": "#/definitions/permitted_organizations"}
-                                  },
-                                  {
-                                      "items": {
-                                          "type": "string",
-                                          "enum": [ "ALL" ]
-                                      },
-                                      "maxItems": 1
-                                  }
-                              ]
-                          },
-                          "shareability": {
-                              "type": "array",
-                              "oneOf": [
-                                  {
-                                      "items": {"$ref":"#/definitions/shareability"}
-                                  },
-                                  {
-                                      "items": {
-                                          "type": "string",
-                                          "enum": [ "ALL" ]
-                                      },
-                                      "maxItems": 1
-                                  }
-                              ]
+                                },
+                                {
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [ "ALL" ]
+                                    },
+                                    "maxItems": 1
+                                }
+                            ]
+                         },
+                         "shareability": {
+                             "type": "array",
+                             "oneOf": [
+                                 {
+                                     "items": {"$ref":"#/definitions/shareability"}
+                                 },
+                                 {
+                                     "items": {
+                                         "type": "string",
+                                         "enum": [ "ALL" ]
+                                     },
+                                     "maxItems": 1
+                                 }
+                             ]
                           },
                           "entity": {
                               "type": "array",
@@ -481,30 +481,28 @@
                 "privilege_action",
                 "privilege_scope",
                 "rule_effect"
-              ]
-          },
-          "further_sharing": {
-              "type": "object",
-              "properties": {
-                  "sharing_scope": {
-                      "type": "array",
-                      "items": {
-                          "type": "string",
-                          "$comment": "based on Appendix A of ACS 3.0 specification"
-                      }
-                  },
-                  "rule_effect": {
-                      "type": "string",
-                      "enum": [ "permit", "deny"]
-                  }
-              },
-              "additionalProperties": false,
-              "required": [
+            ]
+        },
+        "further_sharing": {
+            "type": "object",
+            "properties": {
+                "sharing_scope": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "$comment": "based on Appendix A of ACS 3.0 specification"
+                    }
+                },
+                "rule_effect": {
+                    "type": "string",
+                    "enum": [ "permit", "deny"]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
                 "sharing_scope",
                 "rule_effect"
-              ]
-          }
-       }
-   }
-
-
+            ]
+        }
+    }
+}
