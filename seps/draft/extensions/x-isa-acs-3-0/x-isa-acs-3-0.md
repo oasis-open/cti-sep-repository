@@ -193,6 +193,7 @@ Mitre | TBD
 |  AIS| The resource is appropriate for AIS. |
 | FOUO | The resource is appropriate For Official Use Only. |
 | NF | Indicates that the resource is releasable to U.S. citizens and not releasable to foreign nationals without the permission of the originator.|
+| INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT | Indicates that the resource contains information important to understanding the cyber threat. |
 | PII-NECESSARY-TO-UNDERSTAND-THREAT | Personally identifiable information (PII) necessary to understand the context of the resource is present. |
 | NO-PII-PRESENT |Personally identifiable  (PII) is _not_ present.|
 |PUBREL |Approved for Public Release |
@@ -323,7 +324,7 @@ Notice these examples of the ACS marking definitions appear as part of a marking
           "name": "some_unclassified_marking", 
           "create_date_time": "2016-06-27T14:10:26.723Z",
           "responsible_entity_custodian": "USA.NSA",
-          "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=deny&sharedefault=deny", 
+          "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=deny&sharedefault=permit", 
           "access_privilege": [
                {
 		   "privilege_action": "CISAUSES",
@@ -339,7 +340,7 @@ Notice these examples of the ACS marking definitions appear as part of a marking
                    	"permitted_nationalities": ["ALL"],
                      	"permitted_organizations": ["ALL"]
                    },
-		   "rule_effect": "permit"
+		   "rule_effect": "deny"
 		}
           ],
           "control_set": {
