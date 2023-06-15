@@ -1,5 +1,7 @@
 # cti-sep-repository
 
+* **NOTE:** 15 June 2023: At the request of the CTI TC chairs, the cti-sep-repository has been archived. The repository is no longer maintained and its work has been incorporated within cti-stix-common-objects repo. Please refer to cti-stix-common-objects and, in particular, the extension-definition-specifications sub-directory for ongoing work (https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications).
+
 * **NOTE:** This is an [OASIS TC Open Repository](https://www.oasis-open.org/resources/open-repositories/). See the [Governance](#governance) section for more information.
 
 ## Purpose
